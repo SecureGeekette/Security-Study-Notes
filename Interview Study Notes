@@ -1,1 +1,13 @@
+Web Application Security
 
+Difference between GET and POST request
+What is Cross-Site Scripting (XSS), and how can it be mitigated?
+Explain the concept of SQL Injection. How can developers prevent SQL Injection attacks?
+What is Cross-Site Request Forgery (CSRF), and how can it be prevented?
+Describe the difference between authentication and authorization. How can these be implemented securely in web applications?
+What is HTTPS, and why is it important for web security? How does SSL/TLS work?
+Explain the Same-Origin Policy (SOP) and its role in web security. How can Cross-Origin Resource Sharing (CORS) be used to relax SOP restrictions?
+What is a Web Application Firewall (WAF), and how does it help protect web applications?
+Describe the concept of Clickjacking and methods to prevent it.
+How can you secure sensitive data in transit and at rest within a web application?
+Discuss the importance of input validation and output encoding in web security. Provide examples of how inadequate validation and encoding can lead to vulnerabilities.
