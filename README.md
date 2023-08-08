@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @SecureGeekette
 - 👀 I’m a passionate security engineer interested in expanding my knowledge in the cyber space
-- 🌱 This repository serves as a documentation of my coding and automation journey as a security engineer
+- 🌱 This repository serves as a documentation of my coding and automation journey as well as Cyber Security Interview prep
 
 <!---
 SecureGeekette/SecureGeekette is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
