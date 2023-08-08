@@ -1,13 +1,33 @@
 Web Application Security
 
-Difference between GET and POST request
-What is Cross-Site Scripting (XSS), and how can it be mitigated?
-Explain the concept of SQL Injection. How can developers prevent SQL Injection attacks?
-What is Cross-Site Request Forgery (CSRF), and how can it be prevented?
-Describe the difference between authentication and authorization. How can these be implemented securely in web applications?
-What is HTTPS, and why is it important for web security? How does SSL/TLS work?
-Explain the Same-Origin Policy (SOP) and its role in web security. How can Cross-Origin Resource Sharing (CORS) be used to relax SOP restrictions?
-What is a Web Application Firewall (WAF), and how does it help protect web applications?
-Describe the concept of Clickjacking and methods to prevent it.
-How can you secure sensitive data in transit and at rest within a web application?
-Discuss the importance of input validation and output encoding in web security. Provide examples of how inadequate validation and encoding can lead to vulnerabilities.
+1. Explain the difference between a GET and a POST request
+
+In web development, both HTTP GET and POST are methods used to request and send data between a client (usually a web browser) and a server. They serve different purposes and have distinct characteristics:
+
+GET Request:
+
+Purpose: GET requests are used to retrieve data from the server. They are primarily meant for reading information and should not have any significant side effects on the server or data.
+Data Handling: Data is appended to the URL as query parameters. For example: https://example.com/page?param1=value1&param2=value2.
+Visibility: GET parameters are visible in the URL, which makes them less secure for sensitive information.
+Caching: GET requests can be cached by browsers and proxies, making them suitable for idempotent operations (operations that produce the same result regardless of the number of times they're executed).
+Bookmarking: GET requests can be bookmarked, as they are part of the URL.
+
+POST Request:
+
+Purpose: POST requests are used to send data to the server to be processed or stored. They are suitable for operations that modify data or have side effects on the server.
+Data Handling: Data is sent in the request body, which can include various types of data, such as form data, JSON, XML, etc.
+Visibility: POST data is not visible in the URL, making it more secure for sensitive information.
+Caching: POST requests are not cached by browsers or proxies by default. They are considered non-idempotent.
+Bookmarking: POST requests cannot be bookmarked directly.
+
+
+2. What is Cross-Site Scripting (XSS), and how can it be mitigated?
+3. Explain the concept of SQL Injection. How can developers prevent SQL Injection attacks?
+4. What is Cross-Site Request Forgery (CSRF), and how can it be prevented?
+5. Describe the difference between authentication and authorization. How can these be implemented securely in web applications?
+6. What is HTTPS, and why is it important for web security? How does SSL/TLS work?
+7. Explain the Same-Origin Policy (SOP) and its role in web security. How can Cross-Origin Resource Sharing (CORS) be used to relax SOP restrictions?
+8. What is a Web Application Firewall (WAF), and how does it help protect web applications?
+9. Describe the concept of Clickjacking and methods to prevent it.
+10. How can you secure sensitive data in transit and at rest within a web application?
+11. Discuss the importance of input validation and output encoding in web security. Provide examples of how inadequate validation and encoding can lead to vulnerabilities.
