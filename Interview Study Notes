@@ -26,7 +26,36 @@ Bookmarking: POST requests cannot be bookmarked directly.
 4. What is Cross-Site Request Forgery (CSRF), and how can it be prevented?
 5. Describe the difference between authentication and authorization. How can these be implemented securely in web applications?
 6. What is HTTPS, and why is it important for web security? How does SSL/TLS work?
+
 7. Explain the Same-Origin Policy (SOP) and its role in web security. How can Cross-Origin Resource Sharing (CORS) be used to relax SOP restrictions?
+
+The Same-Origin Policy (SOP) is a fundamental security concept in web browsers that enforces restrictions on how web pages from different origins (domains) can interact with each other. The goal of SOP is to prevent malicious websites from accessing sensitive data or executing actions on behalf of the user without their consent. This policy plays a crucial role in maintaining web security.
+
+Same-Origin Policy (SOP):
+
+The Same-Origin Policy dictates that a web page served from one origin (domain, protocol, and port) is restricted from accessing data or interacting with resources on a different origin. The policy prevents scenarios like a malicious script on one website stealing data from another website that the user is simultaneously logged into.
+
+SOP rules include:
+- Origin Comparison: Two URLs are considered from the same origin if they have the same protocol (http/https), domain, and port.
+- Access Restrictions: JavaScript code running in the context of one origin cannot read or modify properties of a document from a different origin. This applies to accessing cookies, local storage, and DOM elements.
+- Cross-Origin Requests: XMLHttpRequest and Fetch API requests from JavaScript are subject to SOP, meaning that you cannot make direct requests to resources on a different origin.
+
+Cross-Origin Resource Sharing (CORS):
+
+Cross-Origin Resource Sharing (CORS) is a security feature that allows web servers to specify which origins are permitted to access their resources. It's a mechanism for relaxing the strict restrictions of the Same-Origin Policy in controlled ways.
+
+With CORS, a server can include special HTTP headers in its responses to indicate which origins are allowed to access its resources. This enables a web application running at one origin to request and access resources (such as APIs, fonts, images, or other data) from a different origin. Without proper CORS configuration, browsers would block such requests.
+
+To implement CORS, a server can include specific response headers like:
+
+Access-Control-Allow-Origin: This header specifies which origins are allowed to access the resource. It can be a single origin, "*", or a list of allowed origins.
+Access-Control-Allow-Methods: This header specifies the HTTP methods (such as GET, POST, PUT, DELETE) that are permitted for cross-origin requests.
+Access-Control-Allow-Headers: This header specifies which HTTP headers can be used during the actual request.
+Access-Control-Allow-Credentials: This header indicates whether the browser should include credentials (like cookies) in cross-origin requests.
+
+CORS configuration is done on the server side, and proper setup is essential to prevent unauthorized access to sensitive data while still allowing legitimate cross-origin requests.
+
+
 8. What is a Web Application Firewall (WAF), and how does it help protect web applications?
 9. Describe the concept of Clickjacking and methods to prevent it.
 
