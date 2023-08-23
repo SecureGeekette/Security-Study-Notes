@@ -29,5 +29,32 @@ Bookmarking: POST requests cannot be bookmarked directly.
 7. Explain the Same-Origin Policy (SOP) and its role in web security. How can Cross-Origin Resource Sharing (CORS) be used to relax SOP restrictions?
 8. What is a Web Application Firewall (WAF), and how does it help protect web applications?
 9. Describe the concept of Clickjacking and methods to prevent it.
+
+
 10. How can you secure sensitive data in transit and at rest within a web application?
+
+Securing sensitive data in transit and at rest within a web application is crucial to protect user information and maintain the confidentiality and integrity of the data. Here are best practices for achieving security in both these scenarios:
+
+1. Secure Data in Transit:
+
+When data is transmitted between a user's browser and your web application's server, it's susceptible to interception. To secure data in transit, follow these practices:
+
+- Transport Layer Security (TLS)/Secure Sockets Layer (SSL): Implement TLS/SSL to encrypt data during transmission. This prevents eavesdropping and ensures that data remains confidential. Use HTTPS for all communication between the client and server.
+- Use Strong Encryption Protocols: Ensure that your server supports modern and secure encryption protocols like TLS 1.3. Avoid outdated and insecure protocols like SSL.
+- Use Strong Cipher Suites: Configure your server to use strong cipher suites to ensure the encryption's integrity and confidentiality.
+- HSTS (HTTP Strict Transport Security): Enforce HTTPS usage by setting up HSTS headers, which instruct the browser to always use a secure connection for a specific domain.
+- Certificate Management: Properly manage SSL/TLS certificates, keeping them up to date and renewing them before they expire.
+
+2. Secure Data at Rest:
+
+When data is stored on your servers or databases, it needs to be protected against unauthorized access. Here's how to secure data at rest:
+
+- Encryption: Encrypt sensitive data stored in databases. Use strong encryption algorithms and key management practices. Depending on your database system, you might use built-in encryption features or external encryption solutions.
+- Key Management: Safeguard encryption keys and manage them using dedicated key management systems. Never store encryption keys alongside the encrypted data.
+- Database Security: Implement proper access controls and authentication mechanisms for your database. Regularly update your database software and apply security patches.
+- Database Auditing and Monitoring: Implement auditing and monitoring of database activities. This helps you detect and respond to any unauthorized access or suspicious activities.
+- Data Redundancy and Backup: Implement regular data backups and store backups securely. Ensure that your backup copies are also encrypted.
+- Use Parameterized Queries: When interacting with databases, use parameterized queries or prepared statements to prevent SQL injection attacks.
+- Masking and Tokenization: For certain types of sensitive data, consider using data masking or tokenization techniques. These methods replace sensitive data with fake values or tokens, making it difficult for unauthorized users to understand the original data.
+
 11. Discuss the importance of input validation and output encoding in web security. Provide examples of how inadequate validation and encoding can lead to vulnerabilities.
