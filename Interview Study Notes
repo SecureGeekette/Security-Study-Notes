@@ -87,3 +87,9 @@ When data is stored on your servers or databases, it needs to be protected again
 - Masking and Tokenization: For certain types of sensitive data, consider using data masking or tokenization techniques. These methods replace sensitive data with fake values or tokens, making it difficult for unauthorized users to understand the original data.
 
 11. Discuss the importance of input validation and output encoding in web security. Provide examples of how inadequate validation and encoding can lead to vulnerabilities.
+
+
+ML and LLM Security Resources
+
+1. Threat modelling LLM applications: http://aivillage.org/large%20language%20models/threat-modeling-llm/
+2. OWASP Top 10 for LLM Applications: https://www.llmtop10.com/assets/downloads/OWASP-Top-10-for-LLM-Applications-v101.pdf
