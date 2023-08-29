@@ -91,5 +91,6 @@ When data is stored on your servers or databases, it needs to be protected again
 
 ML and LLM Security Resources
 
-1. Threat modelling LLM applications: http://aivillage.org/large%20language%20models/threat-modeling-llm/
-2. OWASP Top 10 for LLM Applications: https://www.llmtop10.com/assets/downloads/OWASP-Top-10-for-LLM-Applications-v101.pdf
+1. Stanford Course on Language Models: https://stanford-cs324.github.io/winter2022/lectures/introduction/
+2. Threat modelling LLM applications: http://aivillage.org/large%20language%20models/threat-modeling-llm/
+3. OWASP Top 10 for LLM Applications: https://www.llmtop10.com/assets/downloads/OWASP-Top-10-for-LLM-Applications-v101.pdf
