@@ -1,5 +1,3 @@
-**OS Implementation & Systems**
-
 Privilege escalation techniques, and prevention.
 
 Buffer Overflows.
@@ -22,6 +20,7 @@ Windows SMB.
 Samba (with SMB).
 Buffer Overflows.
 ROP.
+
 *nix
 
 SELinux.
@@ -31,8 +30,10 @@ MAC vs DAC.
 /tmp - code can be saved here and executed.
 /shadow
 LDAP - Lightweight Directory Browsing Protocol. Lets users have one password for many services. This is similar to Active Directory in windows.
+
 MacOS
 
 Gotofail error (SSL).
 MacSweeper.
 Research Mac vulnerabilities.
+
