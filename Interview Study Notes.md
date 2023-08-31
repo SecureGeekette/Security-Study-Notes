@@ -89,8 +89,47 @@ When data is stored on your servers or databases, it needs to be protected again
 11. Discuss the importance of input validation and output encoding in web security. Provide examples of how inadequate validation and encoding can lead to vulnerabilities.
 
 
-ML and LLM Security Resources
+**ML and LLM Security Resources**
 
 1. Stanford Course on Language Models: https://stanford-cs324.github.io/winter2022/lectures/introduction/
 2. Threat modelling LLM applications: http://aivillage.org/large%20language%20models/threat-modeling-llm/
 3. OWASP Top 10 for LLM Applications: https://www.llmtop10.com/assets/downloads/OWASP-Top-10-for-LLM-Applications-v101.pdf
+
+**OS Implementation & Systems**
+
+Privilege escalation techniques, and prevention.
+
+Buffer Overflows.
+
+Directory traversal (prevention).
+
+Remote Code Execution / getting shells.
+
+Local databases
+
+Some messaging apps use sqlite for storing messages.
+Useful for digital forensics, especially on phones.
+Windows
+
+Windows registry and group policy.
+Active Directory (AD).
+Bloodhound tool.
+Kerberos authentication with AD.
+Windows SMB.
+Samba (with SMB).
+Buffer Overflows.
+ROP.
+*nix
+
+SELinux.
+Kernel, userspace, permissions.
+MAC vs DAC.
+/proc
+/tmp - code can be saved here and executed.
+/shadow
+LDAP - Lightweight Directory Browsing Protocol. Lets users have one password for many services. This is similar to Active Directory in windows.
+MacOS
+
+Gotofail error (SSL).
+MacSweeper.
+Research Mac vulnerabilities.
