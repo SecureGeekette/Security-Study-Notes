@@ -1,0 +1,12 @@
+Dynamic Link Libraries (DLLs) are a fundamental part of the Windows operating system. They are files containing compiled code and data that can be accessed by multiple programs simultaneously.
+
+When a program is launched, links to the necessary .dll files are created.
+If a static link is created, the .dll files will be in use as long as the program is active. If a dynamic link is created, the .dll files will only be loaded into memory at runtime (not when the application starts). The PE (portable executable) file header stores the information about every library that will be loaded and every function that will be used by the program.
+DLL's enable efficient memory usage because only the DLL's that are needed are loaded into memory when required. 
+
+Security Risks of DLL's:
+- Just like any software component, DLL's can have vulnerabilities. If a malicious actor exploits a vulnerability in a DLL, it can affect all applications that use the DLL (blast radius is increased)
+- DLL injection (commonly used in Trojans and Rootkits): Attackers load malicious DLL's into legitimate processes (remote thread injection), potentially gaining unauthorized access (privilege escalation) or control over those processes (or eg. Keyloggers).
+- DLL hijacking: Attackers commonly exploit poor DLL search 
+
+
