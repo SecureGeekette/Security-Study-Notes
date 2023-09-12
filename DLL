@@ -7,6 +7,19 @@ DLL's enable efficient memory usage because only the DLL's that are needed are l
 Security Risks of DLL's:
 - Just like any software component, DLL's can have vulnerabilities. If a malicious actor exploits a vulnerability in a DLL, it can affect all applications that use the DLL (blast radius is increased)
 - DLL injection (commonly used in Trojans and Rootkits): Attackers load malicious DLL's into legitimate processes (remote thread injection), potentially gaining unauthorized access (privilege escalation) or control over those processes (or eg. Keyloggers).
-- DLL hijacking: Attackers commonly exploit poor DLL search 
+- DLL hijacking: Attackers commonly exploit poor DLL search order by tricking an application into loading a malicious DLL instead of the intended one.
 
+Security Best Practises:
+- Perform code review and security assessments of DLL's to identify and fix vulns. Stay upto date on security patches.
+- Digitally sign DLL's to verify their authenticity and integrity. This helps prevent the loading of tampered or malicious DLL's.
+- Limit the permissions granted to DLL's to reduce privilege escalation issues.
+- Harden DLL's by employing techniques such as ASLR (Address Space Layout Randomization) and DEP (Data Execution Prevention) to make it harder for attackers to exploit vulnerabilities in DLLs.
+- When deploying applications that rely on DLL's, ensure that DLL's are in secure directories and their permissions are correctly configured.
+
+Examples of DLL's:
+- Kernel32.dll: Contains core functionality such as access and manipulation of memory, files and hardware.
+- Advapi32.dll: Provides access to Service Manager and Windows Registry
+- User32.dll: Contains all the UI components such as buttons, scroll bars etc. for controlling and responding to their actions.
+
+NOTE: svchost.exe is a generic host process name for services that run from dynamic link libraries. Services are organized into logical groups which are somewhat related and a single service host instance is created to host each group. For eg. One service host process runs 3 services related to the firewall. Always check the file location of the process if you want to verify the authenticity.
 
