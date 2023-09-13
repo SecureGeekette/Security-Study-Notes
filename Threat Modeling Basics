@@ -46,6 +46,71 @@ Trust Levels:
 8. Website Admin
 9. Staff
 
+Entry Points:
+- Library Website Main Page (1)(2)(3)(4)(9)
+- Login Page (1)(2)(3)(4)(9)
+- Login function (2)(3)(9)
+- Search Entry Page (2)(4)(9)
+
+Exit Points: Threats enabled by exit points are related to the threats of the corresponding entry points. In the login example, error messages returned to the user via the exit pt might allow for entry point accounts such as account harvesting or SQL injection (SQL exception errors).
+
+Assets: This what the attacker is interested in - confidential data (PII such as credit cards or SSN, login details) or abstract assets such as reputation. They could also possibly affect the availability of the asset resulting in downtime and revenue loss.
+
+
+
+Second Step of Threat Modeling: Data Flow Diagrams
+These data flows indicate how data flows through the application end to end and what happens to the data as it moves.
+
+
+
+Third Step of Threat Modeling: Determining and Ranking Threats
+
+Multiple threat categorization methodologies exist such as:
+
+- STRIDE (useful for identification of threats by classifying attacker goals):
+Spoofing (Authentication)
+Tampering (Integrity)
+Repudiation 
+Information Disclosure (Confidentiality)
+Denial of Service (Availability)
+Elevation of Privilege (Authentication)
+
+- Threat Analysis based on Risk: Likelihood*Impact
+This categorization informs a threat analyst to focus on certain vulns based on possible attack paths based on root cause identification and understanding of mitigating controls. Use & Abuse cases are also considered after high priority vulns are resolved.
+
+- DREAD (Threat Ranking methodology followed by Microsoft)
+Damage Potential - threat to reputation, financial loss and legal liability
+Reproducability
+Exploitability - does exploit code exist in the wild? how much time & effort does it take
+Affected Users
+Discoverability - how easy is it to discover this threat (publicly exposed etc.)
+
+The way to rank issues can be borrowed from CVSS (Common Vulnerability Scoring System) scoring methodology
+
+Exploitability Metrics used to calculate base score:
+- Attack Vector: Network, Adjacent Network, Local, Physical, Remote
+- Attack Complexity: Low, Medium, High
+- User Interaction: None, Required
+
+Impact Metrics
+- Confidentiality
+- Integrity
+- Availability
+
+Temporal Score
+- Exploit Code Maturity (Not defined, unproven that exploit exists, proof of concept, functional code exists)
+- Remediation Level (Not defined, Temp fix, Official fix)
+- Report confidence (Not defined, reasonable, confirmed)
+
+
+
+Fourth Step of Threat Modeling: Determine countermeasures & mitigation
+
+Purpose of countermeasure identification is to determine if there is some kind of protective control that can prevent the threat from being exploited. 
+
+Cloud example: Even if certain roles have S3 list and get permissions (role based access control), confidential S3 buckets have bucket policies (access control lists in legacy envs) which do not allow access.
+
+Authentication example: Although credentials & tokens are protected with encryption in storage & transit. Additional controls require them to be resistant to brute force, dictionary and replay attacks. Passwords are stored with salted hashes. Password resets do not reveal password hints and valid usernames. 
 
 
 
