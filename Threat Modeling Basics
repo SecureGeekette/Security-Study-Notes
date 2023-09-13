@@ -1,0 +1,51 @@
+Threat modeling is the structured respresentation of information that affects the security of the application. It enables informed decision making about application security risks.
+
+This includes:
+- Description of the subject to be modeled (i.e. assessing scope - unit testing or whole system)
+- Potential Threats to the system (Identify what can go wrong - STRIDE, Kill chains, Attack Trees etc.)
+- Actions that can be taken to mitigate each threat 
+- A way of validating the model & threats and verification of success of actions taken
+- Assumptions that can be checked or challenged in the future as the threat landscape changes 
+
+
+
+First Step of Threat Modeling: Decompose the application (understand the applicaton and how it interacts with external entities)
+
+Create use cases to understand how the application is used.
+Identify entry points to see where a potential attacker could interact with the application.
+Identifying assets ("crown jewels") that the attacker would be interested in.
+Identifying trust levels that represent the access rights that the application will grant to external identities.
+
+
+Example: Borrowed from OWASP documentation
+
+App Name: College Library Website
+Description: The college library website is the first implementation of a website to provide librarians, students and staff with online services.
+Application Version: 1.0 (functionality is implemented as it is first implementation)
+
+Users/ Use Cases:
+- Librarians: Add books, add users and search for books
+- Students: Search for books
+- Staff: Request books
+
+Entry points should also include external dependencies. This are external to the code of the application but still within the control of the org (just not owned by the dev team). For eg. We should understand how an app is intended to be run - is it on a server that has been hardened accorded to the org's hardening standards and is expected to sit behind a firewall?
+
+In our example, we are given that the "College Library Website" will run on a Linux server running Apache.
+The database server will be MySQL, again on a Linux server. These servers are hardened according to the org's standards which includes the installation of the latest OS and application security patches. 
+The connection between the web server and the DB server will be on a private network. The web server is also behind a firewall and all communication is only available via TLS.
+
+Trust Levels:
+
+1. Anonymous Web User
+2. User with valid login credentials
+3. User with invalid login credentials
+4. Librarian
+5. Database Read User
+6. Database Read/Write User
+7. Database Server Admin
+8. Website Admin
+9. Staff
+
+
+
+
