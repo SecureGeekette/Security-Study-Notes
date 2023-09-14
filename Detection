@@ -1,1 +1,15 @@
 
+Components of an Intrusion Detection System:
+- Input: System Activity (i.e. audit records in the form of logs)
+- Audit Data Preprocessor (data is parsed and preprocessed in an security information and event management system)
+- This data is then fed to detection engine which relies on either signature based/ statistical based models (collected from past evidence)
+- Alarm generation and response 
+
+IDS deployment can primarily be of 2 types:
+- Host Based
+- Network Based
+
+Signature Based Detections:
+Set of rules defining a behavior associated with an atta
+
+
