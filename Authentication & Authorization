@@ -5,4 +5,9 @@ Let's discuss some commonly used authentication protocols:
 
 Kerberos (Used in Active Directory):
 
+Kerberos is a network authentication protocol developed by MIT. This is primarily used by a client to prove it's identity to a server over an insecure network connection using symmetric (or secret key cryptography).
+
+The process is as follows:
+1. 
+
 
