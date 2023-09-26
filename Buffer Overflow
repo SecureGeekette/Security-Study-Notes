@@ -61,7 +61,14 @@ Attack High Level View:
 - Figure out where the overflow code should jump
 - Place that address in the buffer in the proper location so that normal return address gets overwritten. The retrn position must point to the beginning of the attack assembly code, otherwise the application will crash with a segmentation violation. 
 
-Guessing the buffer address:
+Prevention
+- Input validation (length/bounds checks)
+- Modern OS's use ASLR (Address Space Layout Randomization) which randomizes memory addresses, making it harder for attacker to predict memory locations.
+- Non executable stacks (Data execution prevention feature on modern OS) - since they should only contain data
+- stack canaries (place a random value before the return address on the stack, if the value changes it indicates a buffer overflow)
+- Use programming languages which have inbuilt memory safe fatures such as Python and Java instead of C/C++
+- Run programs with least privilege necessary
+
 
 
 
