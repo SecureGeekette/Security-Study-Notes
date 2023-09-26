@@ -18,5 +18,33 @@ Text/ Code section: Includes instructions and read only data. Modifications caus
 Data section: Initialized and uninitialized data, static and global variables.
 Stack section: Used for implementing procedure abstraction.
 
+Process memory structure
+env/ argument section - top of memory (FFFF____)
+stack
+  |
+  |
+heap (dynamically allocated data)
+data
+code - bottom of memory (0000____)
+
+If we look at a stack frame, stack usually grows towards lower memory addresses. 
+Stack Frame:
+Parameters            
+Return Address        
+Stack Frame Pointer   
+Local Variables <- Stack pointer points here (this is the top of the stack, but lower memory address)
+
+For example, we have this function:
+void func (char *str) {
+  char buf[126]; -> allocate local buffer (126 bytes reserved on stack)
+  strcpy(buf,str); -> copy argument to local buffer
+}
+
+When this function is invoked, a new frame with local variables is pushed onto the stack:
+Parameters
+Return Address
+Stack Frame Pointer
+Local Variables
 
 
+                      
