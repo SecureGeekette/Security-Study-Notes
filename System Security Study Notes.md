@@ -39,10 +39,6 @@ Zero Trust Architecture: Implement a zero-trust network architecture, where trus
 
 
 
-
-
-Buffer Overflows.
-
 Directory traversal (prevention).
 
 Remote Code Execution / getting shells.
