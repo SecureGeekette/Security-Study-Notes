@@ -1,1 +1,8 @@
+Authentication is used to verify that you are who you say you are i.e. validate a user's identity.
+User authentication is the priority while responding to a request made by a software application.
+
+Let's discuss some commonly used authentication protocols:
+
+Kerberos (Used in Active Directory):
+
 
