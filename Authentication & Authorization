@@ -7,13 +7,33 @@ Kerberos (Used in Active Directory):
 
 Kerberos is a network authentication protocol developed by MIT. This is primarily used by a client to prove it's identity to a server over an insecure network connection using symmetric (or secret key cryptography).
 
-The process is as follows:
+High Level process is as follows:
 1. The client/ user requests an authentication ticket called TGT (ticket granting ticket).
-2. The Windows Server/ Domain Controller/ Ticket Granting Server (TGS) has a KDC (key Distribution Center) which verifies the credentials and sends back an encrypted TGT.
+2. The Windows Server/ Domain Controller has a KDC (key Distribution Center) which verifies the credentials (via the authentication server) and sends back an encrypted TGT (via a Ticket granting server).
 3. The client sends the current TGT to the TGS with the name of the resource the client wants to access (Request Ticket).
 4. The TGS sends a valid session key for the service to the client.
 5. The client stores the TGT and when it expires, the local session manager will request another TGT (from the Windows Server).
 6. The client then requests the service using the valid session key
 7. Server authentication occurs.
 
+Details:
+
+Client Server Authentication:
+1. The client sends a cleartext message of the user ID to the authentication server requesting services on behalf of the user. (Neither the secret key nor the password is sent at this point).
+2. The authentication server checks if the client/ requested user ID is in its database. If it is, the authentication server generates the secret key by hashing the password of the user found in the database (eg. Active Directory in Windows server) and sends back the following messages:
+- TGS session key encrypted using the secret key of the client/user
+- Ticket Granting Ticket which includes the client ID, client network addeess, ticket validity period and the TGS session key. All these parameters are encrypted using the secret key of the TGS.
+3. Once the client receives the messages, it tries to decrypt the session key using the password entered by the user. If the user entered password does not match the password in the database, they will not be able to retrieve the session key.
+
+Client Service Authorization:
+1. The client sends the encrypted TGT received from the server and the ID of the client. They also send the client ID and timestamp encrypted using the TGS session key.
+2. TGS retrieves the TGT since it has access to the TGS secret key. This gives it access to the session key. The server then compares the client ID from the TGT to the message received and if they match, the server sends the following:
+- Client to Server ticket which includes client ID, client network address, validity period and the session key encrypted using the service's secret key.
+- Client/ Server session key encrypted using the TGS session key.
+
+Client Service Request:
+- The client sends the client to server ticket encrypted using the service's secret key. The client also sends a new authenticator which includes the client ID, timestamp and is encrypted using the client/ server session key.
+- The service server decrypt's the client to server ticket and obtains the session key which it uses to decrypt the new authenticator message, If all the details match, the server encrypts the timestamp.
+- The client decrypts the timestamp, if it is correct the client can trust the server and start issuing service requests to the client.
+- The server then provides the requested services to the client.
 
