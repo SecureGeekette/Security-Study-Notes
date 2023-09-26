@@ -1,1 +1,22 @@
+Buffer Overflow Basics
+
+A buffer is a data storage area inside a computer memory (stack or heap). It is intended to store a predefined amount of data. If more data is stuffed into it, it spills into adjacent memory. A buffer overflow basically occurs when a program writes data outside the bounds of allocated memory. They are generally exploited to overwrite values in memory to the advantage of the attacker. It is used to subvert the function of a privileged program so that the attacker can take control of it and if it is sufficiently privileged, then control the host.
+
+
+Code Injection:
+A string is provided as input to a program, which the program stores in a buffer. The string contains native CPU instructions for the platform being attacked.
+
+Code Already There:
+Code of interest already exists in the program. Attacker only needs to call it with desired arguments before jumping to it. eg. Attacker needs to acquire a shell, but code already in some library contains a call to the exec (arg). Attacker must only pass a pointer to the string "/bin/sh" and jump to the exec call.
+
+
+
+1st gen exploits: Stack Smashing
+
+Process memory is organized into 3 regions: Text, Data and Stack
+Text/ Code section: Includes instructions and read only data. Modifications cause segmentation faults.
+Data section: Initialized and uninitialized data, static and global variables.
+Stack section: Used for implementing procedure abstraction.
+
+
 
