@@ -41,10 +41,31 @@ void func (char *str) {
 }
 
 When this function is invoked, a new frame with local variables is pushed onto the stack:
-Parameters
-Return Address
-Stack Frame Pointer
-Local Variables
+Parameters -> str (argument)
+Return Address  (execute code at this location, once the function finishes) -> most popular target, points to attack code
+Stack Frame Pointer -> sfp (this is just the pointer to the previous frame)
+Local Variables -> buf 
+
+Now, what if buffer is overstuffed:
+Memory pointed to by str is copied onto the stack, strcpy does not check if string length < 126. If >126, it will overwrite adjacent stack locations such as the return address. 
+
+Code injection scenario: Attacker puts actual assembly instructions into this input string. eg. binary code of execve ("/bin/sh"). When function exits, code will be executed giving attacker the shell (root shell if the victim program is setuid root). -> This can be stopped by making stacks non executable, since they are only supposed to contain data.
+Code is already there: 
+- Change the return address to point to attack code. After the function returns, control is transferred to attack code.
+- Utilize return-to-libc i.e. use existing instructions in the code segment such as system(), exec() etc.
+
+
+Attack High Level View:
+- Compile attack code
+- Insert the compiled attack code into buffer
+- Figure out where the overflow code should jump
+- Place that address in the buffer in the proper location so that normal return address gets overwritten. The retrn position must point to the beginning of the attack assembly code, otherwise the application will crash with a segmentation violation. 
+
+Guessing the buffer address:
+
+
+
+
 
 
                       
