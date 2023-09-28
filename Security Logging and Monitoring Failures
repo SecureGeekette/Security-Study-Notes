@@ -1,0 +1,35 @@
+Insufficient logging and monitoring - #9 in OWASP 2023
+
+This control is always challenging to test, often relying on interviews or asking if attacks were detected during a penetration test. However, it is very important for visibility, incident alerting, forensics and accountability.
+
+Some easy controls to log/ monitor are:
+- Auditable events such as logins, failed logins and high-value transactions are not logged
+- Warnings and error messages generate number of inadequate or unclear log messages.
+- Logs of applications and API's are not monitored for suspicious activity.
+- Logs are only stored locally 
+- Appropriate alerting thresholds or response escalation processes are not in place or ineffective i.e. we cannot escalate or alert for active attacks. Information is lost in a mountain of logging data.
+- Penetration test and similar scans (fuzzing, DAST etc.) do not trigger alerts
+- Logs are vulnerable to information leakage i.e. logging and alerting events are visible to user or attacker (eg. insertion of sensitive data into log files)
+
+Prevention:
+- Ensure all login, access control and server side input validation failures can be logged with sufficient user context to identify suspicious or malicious accounts. Logs should also be held/ stored for enough time to allow delayed forensic analysis. 
+- Improper output neutralization for logs: Basically means that one can modify data, hide activities, execute unauthorized code or commands. For eg. The following web application code in Java attempts to read an integer value from a request object. If the parseInt fails, then the inut is logged with an error message indicating what happened.
+
+Java
+string val = request.getParameter("val");
+try {
+int value = Integer.parseInt(val);
+} catch (NumberFormatException) {
+log.info ("Failed to parse val=" + val);
+
+If an attacker submits the string "twentyone%0a%0aINFO:+User+logged+out%3dbadguy", the following entry is logged INFO: Failed to parse val= twentyone INFO: User logged out = badguy
+Attackers can use the same mechanism to insert arbitrary log entries (input validation is important)
+
+- Ensure that logs are generated in a format that log management solutions can easily consume.
+- Ensure log data is encoded correctly to prevent injection or attacks in the logging or monitoring systems.
+- Ensure high value transactions have an audit trail with integrity control to prevent tampering or deletion, such as append only databases.
+- All applications in scope should be logged, monitored and effective alerting should be created so that suspicious activities are detected and responded to quickly.
+- Establish or adopt an incident response or recovery plan.
+
+There are many commercial and open source log correlation softwares that can be utilized such as ElasticSearch, LogStash etc. that feature custom dashboards and alerting.
+For eg. If we are only logging failed authentication attempts, this could be helpful in identifying brute force/ dictionary attacks. However, if we log successful authentication events, this can provide a useful audit trail when a legitimate account is compromised. 
