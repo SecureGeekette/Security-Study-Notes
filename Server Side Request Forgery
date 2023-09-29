@@ -1,0 +1,25 @@
+OWASP #10 - Server side request forgery (increasing attack vector)
+
+SSRF flaws occur whenever a web application is fetching a remote resource without validating the user supplied URL. It allows an attacker to coerce the application to send an crafted request to an unexpected destination.
+Attackers can use SSRF to attack systems protected behind a web application firewall, firewalls or network ACL's using scenarios such as:
+
+- Port scan internal servers: If the network architecture is unsegmented, attackers can map out internal networks and determine if ports are open or closed on internal servers from connection results or elapsed time to connect or reject SSRF payload connections.
+
+- Sensitive data exposure: Attackers can access local files or internal services to gain information. eg. file://etc/passwd and http://localhost:28017/
+
+- Access metadata storage of cloud services: most cloud providers have metadata storage at 169.254.169.254 which can be read to gain sensitive information
+
+- Compromise internal servers: The attackers can abuse internal services to conduct further attacks such as Remote Code Execution (RCE) or Denial of Service (DoS).
+
+Prevention:
+
+From Network Layer:
+- Segment remote resource access functionality in separate networks to reduce the impact of SSRF
+- Enforce "deny by default" firewall policies or network access control lists to block all but essential intranet traffic
+
+From Application Layer:
+- Sanitize and validate all client supplied input data
+- Enforce the URL schema, port and destination with an allow list
+- Disable HTTP redirections
+- Do not send raw responses to client
+- Be aware of the URL consistency to avoid attacks such as DNS rebinding and "time of check, time of use" race conditions.
