@@ -20,3 +20,25 @@ Design Requirements:
 - Are secure design requirements for all environments developed to incorporate cloud-native, cloud-enabled or otherwise cloud-based principles of availability, security and scalability?
 - Are periodic assessments conducted to evaluate the coverage, relevance and accuracy of existing secure design requirements?
 - Are design requirements continuously updated to reflect new security directives, evolving technology needs and identified governance gaps?
+
+Vulnerability Feedback:
+- Are results from application security scans centrally tracked and reviewed by security?
+- Are application vulnerabilities analyzed to filter out false positives, deduplicate findings and reprioritize security ratings (based on mitigating controls, exploitability, security posture considerations and enterprise specific environment variables)?
+- The scanning logic and policy rulesets of security tooling is continuously fine tuned to increase the accuracy of scan results and reduce noise.
+- Vulnerabilities are reported to application teams and pushed to developer backlogs for timely remediation.
+- Developers are empowered to communicate false positives and defect tracking mechanisms which are removed from reporting after validation by security personnel (either in the security pipeline or the tooling itself)
+
+
+Security Build Jobs
+- Developers are required to have their code reviewed by another developer either during development (i.e. pair programming) or upon completion of unit code (i.e. peer review)
+- Are static security scans (i.e. SAST/SCA, security unit testing) triggered by code commits, pull requests or build events.
+- Do build jobs fail if static security scanning jobs don't complete, finish with errors or report vulnerabilities?
+
+Build Security Gates
+- Pull request trigger a task for another developer (lead developer, product owner) to review the code changes before approving it to merge with the master branch.
+- Does the code repository manager, build server or CI pipiline call security platforms to pull down metadata (i.e. exit codes) in order to programmatically validate that static security scans are completed. 
+- Do builds fail if vulnerability thresholds are passed?
+
+Infrastructure Hardening
+
+
