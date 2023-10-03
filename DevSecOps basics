@@ -1,0 +1,22 @@
+Assessing security in the Development pipeline
+
+Process:
+Design Requirements -> Design Review -> Application Risk Measurement -> Threat Modelling -> Developer Education -> Static Security Scanning -> Vulnerability Feedback -> Security in Build Jobs -> Build Security Gates -> Version Control -> Dependency Governance -> Open Source Scanning -> Artifact Lifecycle -> Dynamic Security Testing -> Security Test Cases -> Test Data Management -> Asset Management -> Infrastructure Hardening -> Software updates -> Change control -> Environment Management -> Release Approval -> Logging & Monitoring -> Application Runtime scanning -> Endpoint Monitoring -> Vulnerability Scanning -> Vulnerability Remediation -> Vulnerability Assessment
+
+Static Security Scanning questionnaire:
+- Are static security scannning tools available to application teams (could also be integrated into their code editing tools i.e. IDE plugins or pre-commit hooks) to scan their source code for vulnerabilities/ security flaws?
+- Is static security scanning performed as part of attestation activities for audits, regulatory requirements or forensic initiatives?
+- Do applications not under active development perform these scans on a periodic basis to maintain their security posture (i.e. code repository scanning intergration and frequency)?
+- Is static security scanning triggered by webhooks or CI workflows to scan the entire application codebase as it progresses through the pipeline?
+- Is the completion of static security scanning activities validated during release management activities?
+- Do build gates prevent applications from entering the pipeline that don't complete static security scanning?
+
+Design Requirements:
+- Are secure design requirements established to fulfil regulatory/ compliance requirements?
+- Are minimal security baselines established for applications deemed critical to the business?
+- Are secure design principles outlined for systems based on their architecture/ business function?
+- Are secure design principles organized into a cohesive framework that can be consumed by application & infrastructure teams?
+- Are secure design requirements broken down into tangible configurations, specifications or language specific coding guidelines aligned to common tech stacks and/or platforms?
+- Are secure design requirements for all environments developed to incorporate cloud-native, cloud-enabled or otherwise cloud-based principles of availability, security and scalability?
+- Are periodic assessments conducted to evaluate the coverage, relevance and accuracy of existing secure design requirements?
+- Are design requirements continuously updated to reflect new security directives, evolving technology needs and identified governance gaps?
