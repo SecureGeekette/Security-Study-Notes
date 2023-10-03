@@ -40,5 +40,17 @@ Build Security Gates
 - Do builds fail if vulnerability thresholds are passed?
 
 Infrastructure Hardening
+- Are security and hardening requirements established for common operating systems, network security appliances, cloud environments. Are they reviewed and validated before approving infrastructure to be deployed to production. Are they validated periodically in production through configuration monitoring?
+- Are security and hardening requirements for servers, VM's and containers templated into golden images that can be deployed or into hardening instructions that can be executed by configuration management platforms. Can these be updated as security needs evolve?
+- Are security and hardening requirements for cloud resources and network architectures templated within infrastructure-as-code modules? Are these available through enterprise repos? Are these centrally administered and locked down from unauthorized access?
+- Do container, AMI and VM pipelines scan candidate images leveraging enterprise vulnerability tools?
+- Are compute image builds blocked upon detection of vulnerabilities?
+- Are cloud resource configs scanned during build processes to validate that they contain expected expected security parametres & attributes (policy-as-code-checks)
 
+Asset Management
+- Are applications, compute infrastructure and cloud spaces catalogued within the CMDB?
+- Are data classification, criticality, ownership, system build, versioning and other governance metadata documented to facilitate measurement and prioritization of risks - especially for change approvals, monitoring and patching ops?
+- Are minimum cadences established for system owners to review and update records to reflect system, risk/ ownership changes?
+- Do pipeline driven versioning and asset lifecyle updates (i.e. new build, new patch, OS upgrade, server commission/ decommission) include a function to update relevant records to reflect those changes?
+- Do pipeline driven asset dependency updates (i.e. new third party libraries, new integration with other systems, new tech stack, new hosting infrastructure) include a function to update relevant records and reflect these changes?
 
