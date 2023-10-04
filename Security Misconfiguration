@@ -46,4 +46,18 @@ img, media-src (defines from where the protected resource loads images, audio, v
 frame-src (replaced by child-src, defines from where the resource can embed frames)
 script-nonce (define script execution by requiring the presence of a specified nonce on script elements)
 
+- Referer: This header contains an absolute or partial address of the page making the request. This header allows servers to identify where people are visiting them from and is then used for analytics, logging, optimized caching and more. The referer policy governs which referer information should be included with the request made. 
 
+Values:
+no-referer (the referer header will be ommitted entirely. No referer information is sent along with requests)
+origin (only send the origin of the document as the referer in all cases)
+same-origin (referer will be sent for same site origins only)
+
+- Clear-Site-data: This header clears browsing data (cookies, storage, cache) associated with the requesting website. It allows web developers to have more control over the data stored locally by the browser for their origins. For eg. In a logout process, this can ensure that all stored content on a client side are removed.
+
+Values:
+cache (the server wishes to remove locally cached data for the origin of the response URL)
+cookies (server wishes to remove all cookies for the origin of the response URL. HTTP authentication credentials are also cleared out. This affects the entire registered domain, including subdomains)
+* (clear all types of data for the origin of the response)
+
+- Cross-Origin-Embedder Policy: This header prevents any document from loading cross origin sources that's don't explicitly grant the document permission.
