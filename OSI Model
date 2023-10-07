@@ -8,4 +8,24 @@ Used to understand how data is transferred from one computer to another in a com
 
 3. Session Layer: Helps in setting up and managing connections (including termination) to enable the transfer of data. Authentication, authorization are performed at this layer. Files being downloaded are tracked (files are received in the form of data packets, eg. text, images etc.)
 
-4. Transport Layer: Transport layer controls the amount of data being transmitted. 
+Web browser does the operation of application, presentation and session layer. 
+
+4. Transport Layer: Transport layer controls the amount of data being transmitted. For eg. Server can transmit data at 100Mbps but our phone can process at max 10Mbps, when we're downloading a file if the server sends data at 100, which is greater than the rate our mobile can process, the mobile tells the server to slow the transmission rate.  If some data does not arrive at the destination, the transport layer uses automatic request repeat schemes to retransmit the lost or corrupted data. A group of bits called checksum is added to each data unit to find out received corrupted segments. This layer uses protocols TCP (connection oriented transmission, lost data can be retransmitted - www, email and FTP) and UDP (faster than TCP, no feedback provided - online streaming, games, songs)
+
+5. Network Layer: Transport layer passes data segment to the network layer. Data units in the network layer are called packets and are transmitted between different networks. It is the layer where routers reside. Includes logical addressing (IPv4 & IPv6 - mask every computer in a network has a unique IP), each segment is given a source & destination IP address to form a data packet, routing (moves data packets according to logical addressing), path determination (best path for data delivery), L3 devices use protocols such as OSPF, BGP, IS-IS to determine the best path. ICMP is a layer 3 protocol and does not work over a port. 
+
+6. Data Link Layer: This layer receives packets from the network layer. Physical addressing is done at data link layer where MAC addresses of sender and receiver are attached to form a data frame. Data Link Layer is embedded as software in the Network Interface Card of the computer and provides a means to transfer data from one computer to another via physical media (copper wire, optical fiber or air fro radio signals). This layer allows upper layers of the OSI model to access the media and controls how data is placed and received from the media via the Media Access Control (if 2 or more devices use the same media to transfer data and avoid collisions - carrier sense multiple access (CSMA)) and Error detection (errors occur due to the limitation of physical media)
+
+-            Frame                    -
+-------------    Data Packet    -------
+MAC1 | MAC2 | IP1 IP2 | Segment | Tail
+MAC1 - 12 digits alphanumeric number embedded in NIC
+
+7. Physical Layer: This layer converts the bits to signals (electrical signals in case of copper/ coaxial cable), light signals in case of optical fiber, radio signals in case of air. These signals are converted back to bits and passed as frames to the data link layer. 
+
+
+Fun fact: Traceroute/ tracert is used to trace the network path to a destination. Packets are sent to the final destination using different TTL values. Windows uses ICMP by default and Linux uses UDP.
+
+
+
+
