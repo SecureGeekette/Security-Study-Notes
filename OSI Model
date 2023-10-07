@@ -1,0 +1,11 @@
+Open Systems Interconnection (OSI) Model
+
+Used to understand how data is transferred from one computer to another in a computer network. In order to achieve communication between different architectures, 7 layer OSI model is introduced by ISO in 1984.
+
+1. Application Layer: Used by network applications such as Chrome, Outlook and Skype. The protocols used by this layer help us in file transfer (FTP, SFTP), web surfing (HTTP, HTTPS), Email (SMTOP, POP3) and virtual terminal (telnet, SSH).
+
+2. Presentation Layer: Receives data from application layer in the form of alphabets and numbers which is converted to binary format (translation). The number of bits used to represent the original data is reduced (data compression), this can be lossy/lossless. Reduces the amount of space used and speed of transmission is increased (especially helpful in real time audio and video streaming). To protect the confidentiality of data, it can then be encrypted (SSL/TLS encryption). 
+
+3. Session Layer: Helps in setting up and managing connections (including termination) to enable the transfer of data. Authentication, authorization are performed at this layer. Files being downloaded are tracked (files are received in the form of data packets, eg. text, images etc.)
+
+4. Transport Layer: Transport layer controls the amount of data being transmitted. 
