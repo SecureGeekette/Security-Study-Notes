@@ -1,3 +1,22 @@
 GDPR is basically a set of rules that places limits on what organizations can do with personal data and enhance how people can access information about them. Personal data should include name, location data, a clear username, IP address or cookie identifiers. Sensitive personal data also includes genetic or biometric data, health information, religious beliefs etc.
 
-Individuals or organizations are either 'controllers' or 'processors' of data. 'Controllers' are the decision makers - they exercise control over the purposes and means of processing personal data. 
+Individuals or organizations are either 'controllers' or 'processors' of data. 'Controllers' are the decision makers - they exercise control over the purposes and means of processing personal data. There can also be joint controllers for the data. 'Processors' act on the behalf of, and only on the instructions of the relevant controller. 
+
+GDPR has 7 principles:
+- Lawfulness
+- Fairness and Transparency
+- Purpose limitation
+- Data minimization: Organization should identify the minimum amoount of data needed to fulfill your purposes. You should hold that information, no more. 
+- Accuracy
+- Storage limitation
+- Integrity and Confidentiality (security): Personal data must be protected against unauthorised or unlawful processing as well as accidental loss, destruction and damage. GDPR doesn't say what good cybersecurity practices look like but it says that cybersecurity measures need to be appropriate to the size and use of your network and information systems. 
+- Accountability: This means documenting how personal data is handled and the steps taken to ensure that only people who need access to this information are able to.
+
+Any destruction, loss, alteration, unauthorized disclosure of or access to personal data has to be reported to a country's data protection regulator within 72hrs. An organization also needs to tell the people the breach impacts. 
+
+For companies more than 250 people, they need to document why people's information is being processed and/or collected, description of the information that is held, how long it's being kept for and descriptions of technical security measures in place. Large scale organizations or those that process a lot of sensitive personal data need to employ a data protection officer (DPO).
+
+Rights for individuals: Right to be informed, right of access, right to rectification, right of erasure, right to restrict processing, right of data portability (sharing of information from one service to another - Facebook/ Whatsapp's ability yo automatically transfer photos to a Google Photos account), right to object and also rights around automated decision making and profiling. 
+
+
+
