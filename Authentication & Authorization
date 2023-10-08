@@ -37,3 +37,27 @@ Client Service Request:
 - The client decrypts the timestamp, if it is correct the client can trust the server and start issuing service requests to the client.
 - The server then provides the requested services to the client.
 
+
+SAML (Security Assertion Markup Language)
+
+Federated Login: This enables users to use a single authentication ticket/ token to obtain access across all networks of the different IT systems.
+
+SAML is an open federation standard that allows an Identity Provider (IdP) to authenticate users and then pass an authentication token to another application known as Service Provider (SP). With SAML, you can enable SSO.
+
+Identity Provider                                   Browser                                             Service Provider
+
+                                                       ---->     User attempts to access a protected resource
+                                                    Redirect the browser to the IdP for authentication with a SAML request <---- 
+Access the IdP SSO endpoint   <------
+Present a login form to the user ------>
+Authenticate to the IdP with existing credentials <------
+Validate credentials and generate SAML response ------>
+                                                Post the SAML response (authentication and attribute statements) to the SP ---->
+                                                                              Check authenticity of the response and extract details
+                                                    Set Cookie  <--------
+                                                Access as authenticated user
+
+
+What is a SAML assertion?
+
+A SAML assertion is a XML document that the IdP sends to the SP
