@@ -1,1 +1,26 @@
+The program to translate computer names to IP addresses is called DNS. Each mapping from name to IP is called a "DNS Record". Since there are a lot of records, they are organized into domains, which are further organized into zones.
+
+There are a lot of DNS servers that store DNS records. If the computer wants to know a name/number, it asks the DNS server which knows how to ask/query other DNS servers - this is called an "upstream query". Queries for a domain can go upstream until they lead back to the authoritative name server. This is where administrators manage server names and IP addresses for their domains. Whenever a DNS admin wants to add, change or delete a server name/ IP address, they make a change on their authoritative DNS server (also called "master DNS server"). There are also "slave DNS servers" which hold the DNS records for their zones and domains.
+
+Steps in a DNS Lookup:
+
+1. A DNS request starts when we try to access a computer on the internet (eg. www.example.com) i.e. the browser address bar.
+2. The 1st step for the DNS request is the local DNS cache i.e. the browser DNS cache or OS DNS cache (as we access different computers, these IP addresses get stored in a cache with a TTL)
+3. If it is not found in the cache, the request is sent to the recursive DNS server. If it has the IP address it will be returned or we'll have to go ask another DNS server (Root Name Server).
+4. After the root name server, the request is redirected to Top Level Domain (TLD) servers - eg. for the .com address
+5. Even if the TLD servers don't have the address we need, they have the location of the authoritative name server for the requested site.
+6. The authoritative name server responds with the IP address and the recursive DNS server stores it in the DNS cache and returns the address to our computer
+7. The local DNS server gets the IP address and completes the request.
+
+Configure DNS Server
+
+Windows:
+Start -> Settings -> Network & Internet -> Status -> Change Adapter Options -> WiFi/ Ethernet -> Properties -> IPv4 -> Properties -> Use the following DNS Server addresses (enter a primary and secondary one)
+Google DNS: 8.8.8.8 & 8.8.4.4 (ease of use but no specific benefits)
+CloudFlare: 1.1.1.1 & 1.0.0.1 (confirms deletion of data within 24hrs)
+OpenDNS: protects against phishing, parental controls etc. 
+
+Mac:
+System Preferences -> Network -> Advanced -> DNS
+
 
