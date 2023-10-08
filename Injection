@@ -1,0 +1,46 @@
+OWASP #3 - Injection
+
+Source code review is the best method of detecting if applications are vulnerable to injection.
+
+Example Attack Scenarios:
+
+1. An application uses untrusted data in the construction of the following SQL call:
+string query = "SELECT \* FROM accounts where custID = '" + request.getParameter("id") + "';
+The id parameter can be modified to '1'='1 which changes the meaning of the query and returns all records from the accounts table. An attacker could even modify or delete data or even invoke stored procedures.
+
+-> An application is vulnerable to attack when:
+* User supplied data is not validated, filtered or sanitized by the application
+* Dynamic queries or non parameterized calls without context aware escaping are used directly in the interpreter
+
+Compiler: It is a special program that processes statements written in a particular programming language and turns them into machine language code that a computer's processor uses. This code can be executed by the machine after linking. eg. C, C++
+
+Interpreter: This directly executes instructions written in a programming or a scripting language without previously converting them to object code/ machine code. eg. Python, MATLAB etc.
+
+Prevention:
+
+1. Use safe API's, which avoid using the interpreter entirely and provide a parameterized interface. eg. A parameterized query is a query in which placeholders are used for parameters and the parameters are supplied at execution time.
+
+eg. if we don't use parameterized queries:
+$name = $_REQUEST['name']
+$email = $_REQUEST['email']
+$sql = "INSERT INTO CUSTOMERTable(Name, Email)"
+VALUES = ($name, $email)
+
+Now if a user enters:
+Name: Brian
+Email: bswan@microsoft.com '); DROP TABLE CUSTOMERTable ; PRINT 'Gotcha!'--
+
+The resulting SQL query is:
+INSERT INTO CUSTOMERTable (Name, Email);
+VALUES ('Brian', 'bswan@microsoft.com');
+DROP TABLE CUSTOMERTable
+PRINT 'Gotcha!'--
+
+This assumes that your credentials have sufficient permissions to drop a table. Now, if we parameterize this:
+
+2. For any residual dynamic queries, escape special characters using the specific escape syntax for that interpreter
+3. Use LIMIT and other SQL controls within queries to prevent mass disclosure of records in case of SQL injection
+4. Use positive or "whitelist" server side i/p validation: automated testing of all parameters: headers, URL, cookies, JSON, SOAP or XML is encouraged. 
+
+Organizations can include SAST, DAST and IAST application security testing tools into the CI/ CD pipeline to identify introduced injections flaws before production deployment.
+
