@@ -60,4 +60,21 @@ Validate credentials and generate SAML response ------>
 
 What is a SAML assertion?
 
-A SAML assertion is a XML document that the IdP sends to the SP
+A SAML assertion is a XML document that the IdP sends to the SP containing the user authorization status.
+Authentication assertions help verify the identification of a user and provide the time a user logs in and which method of authentication is used (for eg. MFA, password, kerberos etc.)
+Authorization assertion states if a user is authorized to use a service or if the IdP has denied the request (due a authentication failure or due to lack of rights to a service.
+
+
+OAuth (built on OAuth Open ID Connect)
+
+Resource Server                                 Client                                   Authorisation Server
+    User accesses URL    <-----
+    Receive authorisation grant  ----->
+                                      Client requests an authorisation token (w/ grant via an API) --->
+                                                               <-----    Access token is granted
+    Client requests protected resource w/ token <-----
+    Resource server validates access token by sending it to an authorisation server ----------> 
+                                                       <-----      Authorisation Server sends user identity attributes
+    Client receives resource from resource server ->
+
+
