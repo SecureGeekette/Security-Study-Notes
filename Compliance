@@ -57,5 +57,12 @@ Documented operating procedures should be made available to everyone - areas rel
 
 * Information Security Aspects of Business Continuity Management
 
-- 
+- Understand how the org determines it's requirements for continuity of infosec mgmt in adverse situations.
+- Get evidence of testing of the Disaster Recovery Plan or compensating controls.
+- Understand how information processing facilities are implemented with redundancy sufficient to meet availability requirements.
+
+* Cryptography
+
+- Inspect policy on the use of cryptographic controls. Ensure proper use of cryptography to protect the confidentiality, authenticity or integrity of information. Inquire with engineers how systems comply with this policy.
+- Key Management: A policy on the use, protection and lifetime of cryptographic keys should be developed and implemented though their whole lifecycle. 
 
