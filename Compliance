@@ -1,0 +1,23 @@
+Listed below are some of the cybersecurity compliance controls:
+
+PCI-DSS (Payment Card Industry - Data Security Standard): For companies handling credit card information, a set of 12 regulations are designed to reduce fraud and protect credit card data.
+GDPR (General Data Protection Regulation): For any company doing business in EU and handling the data of an EU citizen. Regulates data protection and privacy in the RU.
+CCPA (California Consumer Privacy Act): Privacy rights and consumer protection for the residents of CA.
+NIST (National Institute of Standards and Technology): voluntary framework that can be implemented by any org that wants to reduce their overall risk through a combination of best practices standards and guidelines. Also helps in standardization of risk language.
+SOX (Sarbanes Oxley Act): For US company boards, management and accounting firms - requires companies to maintain financial records for upto 7 years.
+GLBA (Gramm Leach Bliley Act): Financial institutions that offer loans, investment advice, insurance etc. must protect the private information of clients and customers.
+ISO 27000 family: Provides security requirements across the maintenance of information security management systems (ISMS) through the implementation of security controls.
+
+Examples of some controls from ISO 27002
+
+* Operations Security (i.e. Operational Procedures and Responsibilities)
+Documented operating procedures should be made available to everyone - areas related to change management - system installation - handling of automated and manual information - handling errors etc.
+
+- Change management: Documented policies and procedures should exist for controls relating to change to organization, business processes, information processing facilities/ systems and they should be reviewed by relevant teams (including security) for appropriateness.
+- Capacity management (especially for high availability systems): There should be an understanding of how resource monitoring is performed and forecasting of future capacity requirements to ensure required system performance. 
+- Separation of development, testing, staging and production environments to reduce the risks of unauthorized access or changes to the operational environment.
+- Protection from malware: understand the org's detection (HIDS & NIDS), prevention (IPS) and recovery controls against malware. Inspect the Acceptable Use/ Software Use Policy.
+- Information Backup: backup copies of information, software and system images should be taken and tested regularly. Look at the backup policy, schedule, type, scope, notification of backup failure and example of most recent backup restore test.
+- Control of operational software: How is installation of software on operational systems controlled?
+- Technical vulnerability management: Information about vulnerabilities should be obtained in a timely fashion, the org's exposure to such vulns evaluated and measures taken to reduce the associated risk. Review the guidelines/ policies established around internal and external facing scans. Inspect dashboards used for monitoring vuln scans, tickets associated with a vuln. Also inspect evidence of an external penetration test performed by a third party
+- Information Systems Audit Considerations: Audits and activities regarding verification of operational systems should be carefully planned to minimize disruptions to business processes. 
