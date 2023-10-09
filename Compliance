@@ -10,6 +10,7 @@ ISO 27000 family: Provides security requirements across the maintenance of infor
 
 Examples of some controls from ISO 27002
 
+
 * Operations Security (i.e. Operational Procedures and Responsibilities)
 Documented operating procedures should be made available to everyone - areas related to change management - system installation - handling of automated and manual information - handling errors etc.
 
@@ -21,3 +22,29 @@ Documented operating procedures should be made available to everyone - areas rel
 - Control of operational software: How is installation of software on operational systems controlled?
 - Technical vulnerability management: Information about vulnerabilities should be obtained in a timely fashion, the org's exposure to such vulns evaluated and measures taken to reduce the associated risk. Review the guidelines/ policies established around internal and external facing scans. Inspect dashboards used for monitoring vuln scans, tickets associated with a vuln. Also inspect evidence of an external penetration test performed by a third party
 - Information Systems Audit Considerations: Audits and activities regarding verification of operational systems should be carefully planned to minimize disruptions to business processes. 
+
+
+* Communications Security
+
+- Network Security Management: Networks should be managed and controlled to protect information in systems and applications. eg. Ticket for a firewall rule update
+- Security of Network Services: Maintain a network policy with security mechanism service levels and management requirements. Also have network services agreements.
+- Segregation in Networks: Groups of information services, users and information systems should be segregated. Inspect the network diagram to demonstrate that the network is segregated. 
+- Information Transfer: Formal transfer policies and procedures should be in place to protect the transfer of information through the use of all types of communication facilities (including electronic messaging).
+- Confidentiality or non disclosure agreements: Requirements reflecting the org's needs for protection of information should be identified, regularly reviewed and documented. The NDA should include the specific information to be protected and the ownership of the information. Permitted usage of infromation and the process required to follow in the instance of unauthorized disclosure of information should be followed.
+
+
+* Asset Management
+
+- Inventory of assets: Assets associated with information and information processing facilities should be identified and an inventory of these assets should be dran up and maintained. Inspect evidence of system generated library of assets or if they're manually tracked, obtain registers.
+- Ownership of assets: Assets maintained in the inventory should have an assigned owner (ask how the owner is assigned)
+- Returns of assets: All employees and external party users should return all of the organization assets in their possession upon termination of employment, contract or agreement.
+- Classification of Information: Information should be classified in terms of value, sensitivity/ criticality and legal requirements of the organization. 
+- Handling of assets: process of handling assets and information access, distribution, storage, transmission and ownership. Procedures should be implemented in accprdance with the data classification scheme. 
+- Management of removal media
+- Disposal of Media: Destruction procedures for hardware and paper should be documented and reviewed.
+
+
+* Access Control
+
+
+
