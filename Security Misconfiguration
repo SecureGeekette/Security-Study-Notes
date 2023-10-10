@@ -41,6 +41,7 @@ nosniff - will prevent the browser from MIME sniffing a response away from the d
 CSP makes it possible for server administrators to reduce or eliminate the vectors by which XSS can occur by specifying the domains that the browser should consider to be valid sources of executable scripts. A CSP compatible browser will then only execute scripts loaded in source files received from those allowed domains, ignoring all other scripts (including inline scripts and event-handling HTML attributes).
 
 As an ultimate form of protection, sites that want to never allow scripts to be executed can opt to globally disallow script execution.
+Completed this Secure Code Warrior Lab: https://portal.securecodewarrior.com/#/coding-labs/lesson/javascript-react-csp-headers:94ef56a6/javascript.react/walkthrough
 
 Using CSP
 Configuring Content Security Policy involves adding the Content-Security-Policy HTTP header to a web page and giving it values to control what resources the user agent is allowed to load for that page. For example, a page that uploads and displays images could allow images from anywhere, but restrict a form action to a specific endpoint. A properly designed Content Security Policy helps protect a page against a cross-site scripting attack. This article explains how to construct such headers properly, and provides examples.
