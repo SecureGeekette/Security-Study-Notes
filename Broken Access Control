@@ -1,0 +1,17 @@
+OWASP #1 2021 - Broken Access Control
+
+Access control basically enforces policy so that users cannot act outside their intended permissions. Failures typically lead to unauthorized information disclosure, modification, or destruction of all data or performing a business function outside the user's limits.
+
+Example Scenarios:
+
+1. The application uses unverified data in a SQL call that is accessing account information.
+pstmt.setString(1, request.getParameter("acct"));
+ResultSet results = pstmt.executeQuery();
+An attacker simply modifies the browser's "acct" parameter to send whatever account number they want. If not correctly verified, the attacker can access any user's account.
+eg. https://example.com/app/accountInfo?acct=notmyacct
+
+This issue is also called "Insecure Direct Object Reference or IDOR". This is because the "notmyacct" numeric identifier is a direct reference to the user's record in the database. This identifier sometimes may not be in the URL, but rather in the POST body. The user's permission must be verified each time an access attempt is made. Sometimes enumerable numeric identifiers can be replaced with complex, random identifiers. 
+
+2. An attacker can simply force browsing to target URL's.
+https://example.com/app/getappInfo - unauthenticated users should not be able to access this page
+https://example.com/app/admin_getappInfo - non-admin users should not be able to access this page
