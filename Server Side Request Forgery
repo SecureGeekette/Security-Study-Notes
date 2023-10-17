@@ -25,6 +25,11 @@ From Application Layer:
 - Do not send raw responses to client
 - Be aware of the URL consistency to avoid attacks such as DNS rebinding and "time of check, time of use" race conditions.
 
+Detection: Logging and alerting
+- Access logs and error logs for the web servers should be stored and sent to a SIEM.
+- Generate alerts which indicate "permission denied" errors in the error logs (which indicate attempts to read restricted files such as /etc/shadow)
+- Have alerts for identifiers in access logs via string matching regex - which indicate credentials, iam (or related keyword in different cloud environments), file etc.
+
 Practised this scenario in SANS GCIH - SSRF Lab
 
 There's a dummy internship application website which has fields accepting URL's as valid input. There is no validation/ sanitization for these inputs. So when we submit URL's such as file:///etc/passwd as the URL to retrieve, the server performs a GET request for file:///etc/passwd and stores it as name.jpg (after form submission, find out how the server is storing the fields we requested). Although the browser does not render the file details, but when we do a curl request, we can view the ASCII file contents. If the curl command does not retrieve anything, this reveals that the SSRF file include attack failed. This can be due to permission restrictions/ non-existance of files on the server. 
