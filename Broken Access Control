@@ -5,12 +5,17 @@ Access control basically enforces policy so that users cannot act outside their 
 Example Scenarios:
 
 1. The application uses unverified data in a SQL call that is accessing account information.
+
+Database example:
 pstmt.setString(1, request.getParameter("acct"));
 ResultSet results = pstmt.executeQuery();
 An attacker simply modifies the browser's "acct" parameter to send whatever account number they want. If not correctly verified, the attacker can access any user's account.
 eg. https://example.com/app/accountInfo?acct=notmyacct
 
-This issue is also called "Insecure Direct Object Reference or IDOR". This is because the "notmyacct" numeric identifier is a direct reference to the user's record in the database. This identifier sometimes may not be in the URL, but rather in the POST body. The user's permission must be verified each time an access attempt is made. Sometimes enumerable numeric identifiers can be replaced with complex, random identifiers. 
+This issue is also called "Insecure Direct Object Reference or IDOR". This is because the "notmyacct" numeric identifier is a direct reference to the user's record in the database. This identifier sometimes may not be in the URL, but rather in the POST body. The user's permission (object level authorization checks) must be verified each time an access attempt is made. Sometimes enumerable numeric identifiers can be replaced with complex, random identifiers. 
+
+API Security example:
+An automobile manufacturer has enabled remote control of its vehicles via a mobile API for communication with the driver's mobile phone. The API enables the driver to remotely start and stop the engine and lock and unlock the doors. As part of this flow, the user sends the Vehicle Identification Number (VIN) to the API. The API fails to validate that the VIN represents a vehicle that belongs to the logged in user, which leads to a BOLA vulnerability. An attacker can access vehicles that don't belong to him.
 
 2. An attacker can simply force browsing to target URL's.
 https://example.com/app/getappInfo - unauthenticated users should not be able to access this page
