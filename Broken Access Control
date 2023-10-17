@@ -15,3 +15,26 @@ This issue is also called "Insecure Direct Object Reference or IDOR". This is be
 2. An attacker can simply force browsing to target URL's.
 https://example.com/app/getappInfo - unauthenticated users should not be able to access this page
 https://example.com/app/admin_getappInfo - non-admin users should not be able to access this page
+
+3. Path Traversal issues
+If a product uses external input to construct a pathname that should be within a restricted directory, but does not properly neutralize sequences such as "../" - which can help attackers traverse the file system outside of that directory
+
+Example Language: Perl 
+my $dataPath = "/users/cwe/profiles";
+my $username = param("user");
+my $profilePath = $dataPath . "/" . $username; //The intent is to access files such as /users/cwe/profiles/alice or /users/cwe/profiles/bob
+
+open(my $fh, "<", $profilePath) || ExitError("profile read error: $profilePath");
+print "<ul>\n";
+while (<$fh>) {
+print "<li>$_</li>\n";
+}
+print "</ul>\n";
+
+But if the attacker provides a username string as ../../../etc/passwd or ../../../etc/shadow. The OS would resolve this path allowing the attacker ot read the password file.
+
+- Validate all user input
+- Use a WAF
+- Use a CSP
+- Log all inputs
+- Use least privilege
