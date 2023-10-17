@@ -23,3 +23,9 @@ From Application Layer:
 - Disable HTTP redirections
 - Do not send raw responses to client
 - Be aware of the URL consistency to avoid attacks such as DNS rebinding and "time of check, time of use" race conditions.
+
+Practised this scenario in SANS GCIH - SSRF Lab
+
+There's a dummy internship application website which has fields accepting URL's as valid input. There is no validation/ sanitization for these inputs. So when we submit URL's such as file:///etc/passwd as the URL to retrieve, the server performs a GET request for file:///etc/passwd and stores it as name.jpg (after form submission, find out how the server is storing the fields we requested). Although the browser does not render the file details, but when we do a curl request, we can view the ASCII file contents. If the curl command does not retrieve anything, this reveals that the SSRF file include attack failed. This can be due to permission restrictions/ non-existance of files on the server. 
+
+We can also look at the default root directory for web servers (/var/www/html) - eg.index.html or source code repository stored here. Try to find fields such as username, password etc.
