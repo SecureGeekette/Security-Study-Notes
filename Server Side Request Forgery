@@ -7,7 +7,8 @@ Attackers can use SSRF to attack systems protected behind a web application fire
 
 - Sensitive data exposure: Attackers can access local files or internal services to gain information. eg. file://etc/passwd and http://localhost:28017/
 
-- Access metadata storage of cloud services: most cloud providers have metadata storage at 169.254.169.254 which can be read to gain sensitive information
+- Access metadata storage of cloud services: most cloud providers have metadata storage at 169.254.169.254 which can be read to gain sensitive information.
+eg in the URL field reference http://169.254.169.254, find out how the server is storing/ returning this data. Then do a curl request to retrieve this data, if we see directory information, we were successful in launching the virtual Instance Metadata Service (IMDS) on the cloud system. For eg. in our use case, we see "latest", this matches the config of an AWS server running IMDSv1. Then, we can continue to traverse this directory -> http://169.254.169.254 -> http://169.254.169.254/latest -> http://169.254.169.254/latest/meta-data -> We can see a lot of fields here indicating security credentials, ec2 instance information, subnet groups etc., selecting http://169.254.169.254/latest/meta-data/iam/security-credentials -> We can get access to access key, secret access key details etc. This can give the attacker access to the victim cloud environment with the privileges attached to the creds found.
 
 - Compromise internal servers: The attackers can abuse internal services to conduct further attacks such as Remote Code Execution (RCE) or Denial of Service (DoS).
 
