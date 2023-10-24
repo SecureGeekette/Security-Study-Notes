@@ -12,6 +12,25 @@ Web browser does the operation of application, presentation and session layer.
 
 4. Transport Layer: Transport layer controls the amount of data being transmitted. For eg. Server can transmit data at 100Mbps but our phone can process at max 10Mbps, when we're downloading a file if the server sends data at 100, which is greater than the rate our mobile can process, the mobile tells the server to slow the transmission rate.  If some data does not arrive at the destination, the transport layer uses automatic request repeat schemes to retransmit the lost or corrupted data. A group of bits called checksum is added to each data unit to find out received corrupted segments. This layer uses protocols TCP (connection oriented transmission, lost data can be retransmitted - www, email and FTP) and UDP (faster than TCP, no feedback provided - online streaming, games, songs)
 
+What is a three-way handshake?
+
+The three-way handshake is a fundamental process in the establishment of a TCP (Transmission Control Protocol) connection between two devices over a network. It is a method used to ensure that the both the sender and receiver are ready and willing to establish the connection before data transmission begins. The three steps involved in the TCP three-way handshake are as follows:
+
+Step 1: SYN (Synchronize)
+The client (also known as the initiator) sends a TCP packet to the server with the SYN flag set to 1, indicating that it wants to establish a connection.
+The client also selects an initial sequence number for the communication.
+
+Step 2: SYN-ACK (Synchronize-Acknowledge)
+Upon receiving the SYN packet, the server responds with a TCP packet with both the SYN and ACK (acknowledge) flags set to 1.
+The server also generates its own sequence number for the communication and acknowledges the receipt of the client's SYN packet.
+
+Step 3: ACK (Acknowledge)
+Finally, the client responds to the server's SYN-ACK packet with a TCP packet where the ACK flag is set to 1.
+At this point, the TCP connection is established between the client and the server. Both parties have exchanged the necessary information and are ready to exchange data.
+The three-way handshake ensures that both the sender and receiver are capable of sending and receiving data before the actual data transfer begins. It also establishes the initial sequence numbers for both the client and server, allowing them to correctly reorder and reassemble received packets during the data transmission process.
+
+Once the three-way handshake is complete, the devices can start exchanging data packets over the established TCP connection. When the data exchange is complete, the connection is terminated using a similar process known as the four-way handshake, where both parties agree to close the connection gracefull
+
 5. Network Layer: Transport layer passes data segment to the network layer. Data units in the network layer are called packets and are transmitted between different networks. It is the layer where routers reside. Includes logical addressing (IPv4 & IPv6 - mask every computer in a network has a unique IP), each segment is given a source & destination IP address to form a data packet, routing (moves data packets according to logical addressing), path determination (best path for data delivery), L3 devices use protocols such as OSPF, BGP, IS-IS to determine the best path. ICMP is a layer 3 protocol and does not work over a port. 
 
 6. Data Link Layer: This layer receives packets from the network layer. Physical addressing is done at data link layer where MAC addresses of sender and receiver are attached to form a data frame. Data Link Layer is embedded as software in the Network Interface Card of the computer and provides a means to transfer data from one computer to another via physical media (copper wire, optical fiber or air fro radio signals). This layer allows upper layers of the OSI model to access the media and controls how data is placed and received from the media via the Media Access Control (if 2 or more devices use the same media to transfer data and avoid collisions - carrier sense multiple access (CSMA)) and Error detection (errors occur due to the limitation of physical media)
