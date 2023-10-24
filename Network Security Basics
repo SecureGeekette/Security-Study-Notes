@@ -2,6 +2,7 @@
 Common ports involving security, what are the risks and mitigations?
 
 1. Port 22 (SSH): Secure Shell protocol is used for remote access to servers.
+Port 3389 (Remote Desktop Protocol) - similar to SSH, but used for GUI based remote access instead of SSH's command line (risks and mitigations are same)
 
 Risk: Unauthorized access to the system via brute-force attacks, password guessing or sniffing.
 Mitigations: 
@@ -47,8 +48,24 @@ Mitigations:
 - Regularly update and patch web applications and web servers.
 - Use HTTPS (TLS) to encrypt data in transit, protecting against eavesdropping/ man-in-the-middle attacks.
 
-6. Port 139, 445 (SMB - Server Message Block)
+6. Port 139, 445 (SMB - Server Message Block) - network file sharing protocol used to access and manage files and resources on remote computers.
 
+Risk: remote code excution, ransomware, lateral movement
+- Keep systems patched and up-to-date against known vulnerabilities
+- use strong, unique passwords and implement mandatory MFA
+- restrict SMB access to trusted networks and use firewalls to block unnecessary SMB traffic
+- implement network segmentation to limit the impact of lateral movement
+
+7. Port 1521 (Oracle Database), Port 3306 (MySQL) or port 5432 (PostgreSQL)
+
+Risk: Data Breaches, unauthorized access
+Mitigations:
+- Keep database software patched and up-to-date against known vulnerabilities
+- Implement strong access controls limiting users privilege to the minimum necessary
+- Limit database access to trusted hosts and use firewalls to restrict access
+- Encrypt sensitive data at rest and transit
+- Use prepared statements and parameterized queries (for SQL related databases) to prevent SQL injection attacks in code
+- Use strong, unique passwords
 
 
 
