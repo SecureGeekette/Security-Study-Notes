@@ -1,1 +1,55 @@
 
+Common ports involving security, what are the risks and mitigations?
+
+1. Port 22 (SSH): Secure Shell protocol is used for remote access to servers.
+
+Risk: Unauthorized access to the system via brute-force attacks, password guessing or sniffing.
+Mitigations: 
+- If possible, disable password based authentication and use key based auth. If not possible, enforce strong and unique passwords.
+- Implement Multi Factor Authentication (MFA).
+- Implement rate limiting and account lockout policies (to prevent against brute force attacks)
+- Limit SSH access to specific IP addresses or networks.
+- Log and monitor SSH login attempts for suspicious activities - block IP addresses after multiple failed logon attempts.
+- Change the default SSH port to reduce exposure to automated attacks.
+- Disable root login via SSH to reduce attack surface.
+
+2. Port 23 (Telnet): Unencrypted Text based protocol that allows users to remotely access systems.
+
+Risk: Does not require authentication, anyone who can connect to port 23 can gain access - elevates risk of anauthorized access.
+Mitigations:
+- If possible, disable telnet and utilize SSH instead.
+- Restrict Telnet traffic to trusted internal networks, preventing external access to port 23 (using firewalls, security groups, network access control lists).
+- Log and monitor Telnet usage to detect and prevent unauthorized usage
+
+3. Port 25 (Simple Mail Transfer Protocol): protocol used to send email
+
+Risk: Email spoofing, phishing, spam and malware distribution
+Mitigations:
+- Use email filtering services and antivirus software to detect and block malicious emails.
+- Implement SPF (sender policy framework)
+- Implment DKIM (Domain Keys Identified Mail)
+- Implement DMARC (Domain based message authentication, reporting and conformance)
+
+4. Port 53 (Domain Name System)
+
+Risk: DNS Spoofing, DDoS attacks
+Mitigations:
+- Implement DNSSEC (DNS Security Extensions) for your domain to ensure data integrity and authenticity in DNS responses - basically sign DNS data with cryptographic signatures
+- Use rate limiting and employ DNS filtering (block access to malicious or phishing websites) to prevent against DDoS
+- Chose a reputable DNS Hosting provider
+- Configure firewalls to allow DNS traffic only trusted sources
+
+5. Port 80 (HTTP) or Port 443 (HTTPS)
+
+Risk: Web vulnerabilities, Data interception
+Mitigations:
+- Implement web application firewalls (WAFs) to filter malicious traffic and protect against attacks like SQL injection and XSS (Cross Site Scripting).
+- Regularly update and patch web applications and web servers.
+- Use HTTPS (TLS) to encrypt data in transit, protecting against eavesdropping/ man-in-the-middle attacks.
+
+6. Port 139, 445 (SMB - Server Message Block)
+
+
+
+
+
