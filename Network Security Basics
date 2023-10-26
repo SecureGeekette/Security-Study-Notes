@@ -69,4 +69,50 @@ Mitigations:
 
 
 
+How does HTTP work? Uses
+
+HTTP (Hypertext Transfer Protocol) is a protocol used for transmitting data over the internet. It is the foundation of any data exchange on the Web and is a client-server protocol, which means requests are initiated by the recipient, usually the web browser. Here's how HTTP works and how it is used:
+
+How HTTP Works:
+Client-Server Model: HTTP follows a client-server model. The client, typically a web browser, sends requests to the server, which hosts the desired resources (such as web pages, images, or documents). The server processes these requests and sends back the appropriate responses.
+
+Stateless Protocol: HTTP is stateless, meaning that each request from a client to the server is treated independently. The server doesn't retain any information about past requests from the same client. To maintain state across multiple requests, mechanisms like cookies or sessions are used.
+
+Connectionless: HTTP is connectionless, which means that the server doesn't keep a connection open after sending a response. For each request, a new connection is established, and once the response is sent, the connection is closed.
+
+Text-Based: HTTP messages are typically text-based, consisting of a request line, headers, and a message body (in the case of POST requests). These messages are human-readable, making it easy to debug and analyze the data being transmitted.
+
+How HTTP Is Used:
+Website Access: HTTP is used when you access a website using your web browser. When you enter a URL (Uniform Resource Locator) in your browser's address bar and hit Enter, your browser sends an HTTP request to the server hosting the website, asking for the specified web page.
+
+Resource Retrieval: HTTP is used to retrieve various resources from a server. These resources can include HTML documents, images, stylesheets, JavaScript files, videos, and other types of files necessary for displaying a web page properly.
+
+API Communication: HTTP is widely used for communication between web applications and APIs (Application Programming Interfaces). Applications can make HTTP requests to APIs to request data or perform specific actions. APIs respond to these requests with the necessary data, typically in JSON or XML format.
+
+Form Submissions: When you submit a form on a website (such as a login form or a search bar), your browser sends the form data to the server using an HTTP request. The server processes the data and sends back an appropriate response.
+
+Hyperlink Navigation: HTTP is used for hyperlink navigation. When you click on a link on a web page, your browser sends an HTTP request to the server associated with the link's URL, requesting the linked resource.
+
+
+How does HTTPS work? Uses
+
+HTTPs (Hypertext Transfer Protocol Secure) is the secure version of HTTP, which stands for Hypertext Transfer Protocol. It is the protocol used for transmitting data over the internet. The 'S' in HTTPS stands for 'Secure,' indicating that the communication between the user's web browser and the website's server is encrypted and secured. Here's how HTTPS works and how it is used:
+
+How HTTPS Works:
+Encryption: When you access a website using HTTPS, the data exchanged between your browser and the website's server is encrypted. This encryption ensures that even if someone intercepts the data being transmitted, they cannot read it without the proper decryption key.
+
+Authentication: HTTPS also provides authentication, ensuring that the website you are connecting to is indeed the website it claims to be. This authentication is achieved through digital certificates issued by Certificate Authorities (CAs). Websites need to obtain an SSL/TLS certificate to enable HTTPS. When you connect to an HTTPS website, your browser checks the website's certificate to confirm its authenticity.
+
+Data Integrity: HTTPS provides data integrity, meaning that the data cannot be altered or corrupted during transmission. If even a single bit of the transmitted data is altered, the decryption process at the receiver's end fails, indicating potential tampering.
+
+How HTTPS Is Used:
+Secure Data Transmission: HTTPS is widely used in scenarios where sensitive data, such as login credentials, payment information, or personal details, needs to be transmitted securely over the internet. Examples include online banking, e-commerce websites, and web applications that require user authentication.
+
+Search Engine Ranking: Search engines, like Google, consider HTTPS as a ranking factor. Websites using HTTPS are often ranked higher in search engine results pages (SERPs) compared to non-secure websites. This ranking boost incentivizes website owners to implement HTTPS.
+
+Trust and Credibility: HTTPS enhances the trustworthiness of websites. Visitors are more likely to trust and interact with a website if they see the padlock icon in the browser's address bar, indicating a secure connection.
+
+Compliance and Regulation: Many data protection regulations, such as the General Data Protection Regulation (GDPR) in the European Union, require the use of encryption mechanisms like HTTPS to protect user data. Websites handling user information are legally obligated to implement secure connections.
+
+Preventing Man-in-the-Middle Attacks: HTTPS helps prevent Man-in-the-Middle (MitM) attacks, where an attacker intercepts communication between two parties. Encrypted data transmission ensures that even if intercepted, the data remains unreadable to the attacker.
 
