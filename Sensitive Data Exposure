@@ -34,7 +34,25 @@ How to prevent?
 - Make sure to encrypt all sensitive data at rest.
 - Ensure up-to-date and strong standard algorithms, protocols and keys are in place, use proper key management.
 - Disable caching for responses that contain sensitive data.
-- Encryot all data in transit with secure protocols such as TLS with perfect forward secrecy (PFS) ciphers, cipher prioritization by the server and secure parameters. Enforce encryption using directives like HTTP Strict Transport Security (HSTS).
+- Encrypt all data in transit with secure protocols such as TLS with perfect forward secrecy (PFS) ciphers, cipher prioritization by the server and secure parameters. Enforce encryption using directives like HTTP Strict Transport Security (HSTS).
 - Store passwords using strong adaptive and salted hashing functions such as work factor (delay factor) such as Argon2, scrypt, bcrypt or PBKDF2. 
 - Verify independently the effectiveness of configuration and settings. 
 
+
+*How to secure a database*
+
+1. Enforce strong password policies and multi-factor authentication
+2. Implement the principle of least privilege ensuring users only have the necessary permissions. 
+3. Configure access controls such as Row Level Security (for eg. in a healthcare application, doctors should only be able to access the medical records for their own patients)
+4. Configure role based access controls - define sets of permissions for different job functions
+5. Configure Attribute based access controls - access to financial data only during business hours (time based control), sepcific IP addresses are allowed to access sensitive data etc
+3. Encrypt data at rest and in-transit using strong encryption and hashing algorithms
+4. Keep the database management system and associated software up-to-date with latest security patches
+5. Enable auditing to track database activities, including logins, queries and modifications
+6. Implement real time monitoring/ alerting to detect and respond to suspicious activities
+7. Regularly back up data and test backups for data restoration
+8. Develop and test a comprehensive disaster recovery plan for quick service restoration
+9. Follow secure coding practices to prevent common vulnerabilities such as SQL injection and cross site scripting
+10. Use firewalls to restrict database access to trusted IP addresses
+11. Deploy databases in isolated networks (different VPC)
+12. Implement data masking or redaction to hide sensitive data in query results
