@@ -65,16 +65,24 @@ Authentication assertions help verify the identification of a user and provide t
 Authorization assertion states if a user is authorized to use a service or if the IdP has denied the request (due a authentication failure or due to lack of rights to a service.
 
 
-OAuth (built on OAuth Open ID Connect)
+OAuth (built on OAuth Open ID Connect - Open Authorization)
 
-Resource Server                                 Client                                   Authorisation Server
-    User accesses URL    <-----
-    Receive authorisation grant  ----->
-                                      Client requests an authorisation token (w/ grant via an API) --->
-                                                               <-----    Access token is granted
-    Client requests protected resource w/ token <-----
-    Resource server validates access token by sending it to an authorisation server ----------> 
-                                                       <-----      Authorisation Server sends user identity attributes
-    Client receives resource from resource server ->
+OAuth is an authorization protocol that allows users to grant third-party applications limited access to their resources without sharing their credentials (like username and password) directly with the application. It works by enabling resource owners to delegate access to their resources (stored on one server) to a client aopplication (accessing the resources on behalf of the resource owner)
 
+Here's how it works:
 
+1. Client Registration: The client application (application that needs access to the user's resources) registers with the OAuth provider (authorization server). During registration, the client is issued a client ID and client secret. These credentials are used to authenticate the client with the authorization server. 
+
+2. Authorization Request: When the user (resource owner) want to grant the client application access to their resources, the client initiates the OAuth process by redirecting the user to the authorization server. The client includes its client ID and specifies the scope of the access it needs (eg. read, write etc.) in the authorization request.
+
+3. User authorization: The authorization server authenticates the user and presents them with a consent screen, informing them about the requested permissions the client making the request (user can grant or deny the request)
+
+4. Authorization grant: If the user grants permissioon, the authorization server issues an authorization code to the client. The code is sent to the client's redirect URI.
+
+5. Access Token Request: The client sends a request to the authorization server to exchange the authorization code for an access token. This token includes its client ID, client secret and authorization code.
+
+6. Access Token Issuance: The authorization server validates the client's credentials and the authorization code. If everything is valid, the authorization server issues an access token to the client. 
+
+7. Accessing Protected resources: The client includes the access token in the request to the resource server when accessing the protected resources. The resource server validates the access token and if valid and authorized for requested scope, the requested resource is served. 
+
+8. Token Expiration and refresh: Access tokens have a limited lifespan. If the client needs prolonged access, it can use a refresh token to obtain a new access token without user interaction.
