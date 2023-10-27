@@ -22,6 +22,27 @@ Bookmarking: POST requests cannot be bookmarked directly.
 
 
 2. What is Cross-Site Scripting (XSS), and how can it be mitigated?
+
+Cross site scripting is a security vulnerability commonly found in web applications. It occurs when an attacker is able to inject malicious scripts (usually written in JavaScript) into web pages viewed by other users. When a victim user loads the affected web page, the malicious script is executed in their browser, allowing the attacker to steal sensitive information, manipulate the appearance of the webpage or perform actions on behalf of the user without their consent.
+
+Types of Cross Site Scripting attacks:
+- Stored XSS: In this, the malicious script is permanently stored on the target server (for ex. a database). When a user visits the affected page, the script is served from the server and executes in their browser.
+- Reflected XSS: Here, the injected script is embedded in a URL and is only served when a victim clicks on a malicious link. 
+- Dom-based XSS: This occurs when the attacker modifies the Document Object Model (DOM) of a web page in an unexpected way leading to a security vulnerability.
+
+Exploitation Impacts:
+- Session Hijacking: User's session cookies can be stolen allowing attackers to impersonate victims and perform actions on their behalf
+- Phishing: Malicious scripts can create realistic looking login forms or other fields, tricking users into providing sensitive information. 
+- Defacement
+- Malware dsitribution: Attackers can redirect users to websites hosting malware, leading to the infection of their systems
+
+Mitigations:
+- Input validation : Validate and sanitize all user inputs, both on the client and server sides to ensure they do not contain executable scripts
+- Output encoding: Encode any content provided by users such as form inputs, comments etc. before showing it on web pages. for eg. <script> should be encoded as &lt;script&gt;. Libraries like OWASP's Java Encoder or PHP's htmlentities can be used for this purpose
+- Content Security Policy (CSP): Implement CSP headers specifying which resources are allowed to be loaded - this helps prevent xss by disallowing the execution of inline scripts
+- HttpOnly and Secure Flags: Set the following on session cookies to prevent JavaScript access and to ensure cookies are only transmitted over HTTPS connections
+- Regular Security Audits and Code Reviews for SAST and SCA - identify and fix vulnerabilities in the codebase
+
 3. Explain the concept of SQL Injection. How can developers prevent SQL Injection attacks?
 4. What is Cross-Site Request Forgery (CSRF), and how can it be prevented?
 5. Describe the difference between authentication and authorization. How can these be implemented securely in web applications?
