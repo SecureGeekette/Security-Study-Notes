@@ -15,25 +15,15 @@ Exploiting Set-UID/GID Binaries: Set-UID and Set-GID programs run with elevated 
 Privilege Escalation Prevention:
 
 Regular Patching and Updates: Keep the system up-to-date with security patches and updates to mitigate known vulnerabilities.
-
 Least Privilege Principle: Limit user privileges to the minimum necessary for their tasks. Avoid granting unnecessary root or sudo access.
-
 Strong Authentication: Enforce strong password policies, consider multi-factor authentication, and implement secure authentication methods like SSH keys.
-
 File and Directory Permissions: Regularly audit and set proper permissions on files and directories, following the principle of least privilege.
-
 Monitoring and Auditing: Implement system monitoring and auditing tools to detect unusual activities and privilege escalations in real-time.
-
 Regular Security Audits: Conduct regular security audits and vulnerability assessments to identify and fix weaknesses proactively.
-
 Sudo Configuration: Carefully configure sudo to restrict which commands users can execute with elevated privileges.
-
 AppArmor or SELinux: Use Mandatory Access Control (MAC) mechanisms like AppArmor or SELinux to confine processes and limit potential damage from exploits.
-
 Kernel Hardening: Apply kernel hardening techniques such as grsecurity/PaX to protect against kernel-level vulnerabilities.
-
 User Training and Awareness: Train users and administrators about security best practices, social engineering risks, and how to recognize and report potential threats.
-
 Zero Trust Architecture: Implement a zero-trust network architecture, where trust is never assumed, and authentication and authorization are required for every access request.
 
 
@@ -162,4 +152,20 @@ MacOS
 Gotofail error (SSL).
 MacSweeper.
 Research Mac vulnerabilities.
+
+
+What do you do if a user brings you a pc that is acting 'weird'? You suspect malware.
+
+1. Isolate the PC: Disconnect the infected PC from the network and the internet to prevent the malware from spreading or communicating with malicious servers.
+2. Assessment and Documentation: Interview the user to understand the symptoms and behaviors of the PC. Document any error messages, strange pop-ups or unusual activities reported by the user.
+3. Backup important data: Back up data to an external storage device or cloud service. This is crucial since malware removal processes lead to data loss.
+4. Run antivirus and anit-malware scans: Boot the PC into safe mode to minimize the malware's active proceses. Run a reputable antivirus and antimalware scanner to detect and remove malware. 
+5. Offline scanning: Use an offline antivirus scanner (bootable USB with antivirus software) to perform a scan without booting into the infected operating system. this helps in detecting and removing deeply deeply embedded malware.
+6. System Restore and Recovery: Consider using System Restore (Windows) or Time Machine (Mac) to revert the system to a state before the malware infection occurred.
+7. Manual Inspection: Manually inspect startup items, browser extensions, and installed programs for suspicious entries. Remove anything unfamiliar or suspicious.
+8. Update Software: Ensure the operating system, antivirus software, browsers and other applications are up-tp-date. Malware often exploits vulnerabilities in outdated software.
+9. Educate the user: Educate the user about safe browsing habits, avoiding suspicious downloads, and refraining from clicking on unknown links or email attachments. 
+10. Reconnect to Network: After ensuring the PC is clean, reconnect it to the network and check for unusual network activity or outbound connections.
+11. Monitor and follow-up: Monitor for recurrent issues and follow-up with the users.
+12. If nothing works, reinstall the operating system: If malware is deeply embedded or if the system remains unstable despite your efforts, consider reinstalling the operating system to ensure a clean state.
 
