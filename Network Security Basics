@@ -116,3 +116,24 @@ Compliance and Regulation: Many data protection regulations, such as the General
 
 Preventing Man-in-the-Middle Attacks: HTTPS helps prevent Man-in-the-Middle (MitM) attacks, where an attacker intercepts communication between two parties. Encrypted data transmission ensures that even if intercepted, the data remains unreadable to the attacker.
 
+
+
+What causes DDoS attacks?
+
+Distributed Denial of Service (DDoS) attacks can take various forms with the goals of overwhelming a target system, network, or website making it inaccesible for users. Some common types are:
+
+1. HTTP Flood: The attacker floods the target server with a messive number of HTTP requests causing it to slow down or crash. Web application firewalls (WAF's) can detect and block malicious HTTP requests. Rate limiting and CAPTCHA challenges can also help mitigate HTTP floods.
+
+2. UDP Flood: Attackers send large volume of UDP packets to random ports on the target system, consuming its resources in processing these packets. Firewalls or routers configured to drop UDP packets from suspicious sources can help mitigate UDP floods. Load balancers also distribute traffic evenly.
+
+3. ICMP Flood (Ping Flood): Attackers flood the target with large number of ICMP echo request packets overwhelming the target's network bandwidth. Firewalls or routers configured to drop ICMP packets from unknown or suspicious sources can help mitigate ICMP floods. Rate limiting can also be applied to incoming ICMP re quests.
+
+4. SYN Flood: Attackers exploit the TCP handshake process by sending a flood of TCP SYN packets without completing the handshake. This exhausts server resources and prevents legitimate connections. SYN cookies can be implemented at the server to handle incomplete suggestions. Firewalls and load balancers can also be configured to drop excessive SYN packets.
+
+5. DNS Amplification: Attackers exploit misconfigured DNS servers to amplify their attack. They send small DNS queries with a spoofed source IP and the DNS server responds to the victim's IP with a much larger response. DNS servers should be properly configured to prevent recursive DNS requests from unauthorized sources. Rate limiting and query filtering also help.
+
+Similar to DNS amplification, attackers exploit NTP (network time protocol) servers to amplify their attack traffic and overwhelm the target.
+
+6. Smurf attack: Attackers use IP spoofing to send large number of ICMP echo request (ping) packets to an IP broadcast address, causing all devices on the subnet to respond to the spoofed IP. Routers can be configured to block IP broadcast amplification. Anti-spoofing efforts should also be implemented at the network parameter.
+
+7. Slowloris: This keeps many connections to the target web server open and holds them as long as possible, exhausting the server's resources. Web servers can be configured to limit the number of connections per IP address. Intrusion detection systems can also identify and block Slowloris attacks.
