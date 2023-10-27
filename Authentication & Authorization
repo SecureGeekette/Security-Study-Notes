@@ -1,6 +1,31 @@
 Authentication is used to verify that you are who you say you are i.e. validate a user's identity.
 User authentication is the priority while responding to a request made by a software application.
 
+
+
+How do cookies work?
+
+Cookies are small pieces of data sent from a web server and stored in a user's web browser while the user is browsing a website. They are essential for many web applications because they enable the server to remember stateful information as users navigate different pages or revisit the website. Here's how they function:
+
+Identification: When you visit a website, the server sends a cookie containing a unique identifier to your browser.
+
+Storage: The browser stores this cookie on your device. Subsequently, every time you make a request to the same website, the cookie is sent back to the server, allowing it to recognize you.
+
+Session Management: Cookies help manage user sessions, store login credentials, remember items in a shopping cart, and personalize user experiences.
+
+Set-Cookie: user_id=12345; expires=Wed, 09 Jun 2023 10:18:14 GMT; path=/; domain=.example.com; Secure; HttpOnly
+
+Risks:
+Session Hijacking: If a cookie is intercepted, an attacker can impersonate a user, leading to unauthorized access to sensitive data or actions on the website.
+
+Cross-Site Scripting (XSS): Malicious scripts injected into a web page can steal cookies, enabling attackers to hijack user sessions.
+
+Cross-Site Request Forgery (CSRF): Attackers trick users into performing actions on a website without their consent by utilizing their active sessions, often through manipulated URLs containing cookies.
+
+Data Privacy Concerns: Cookies can store personal information, raising privacy issues, especially when third-party cookies track users across various websites without their consent.
+
+Cookie Theft: Malware or malicious scripts can steal cookies from users' browsers, leading to security breaches or identity theft.
+
 Let's discuss some commonly used authentication protocols:
 
 Kerberos (Used in Active Directory):
