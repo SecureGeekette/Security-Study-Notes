@@ -1,0 +1,12 @@
+Common Security Issues seen in the cloud
+
+1. Open (i.e. Public) S3 buckets
+2. S3 buckets/ EBS Volumes/ data disks not encrypted at rest
+3. Network ACL's and Security groups allow public access (both ingress and egress)
+4. Container registries are publicly acessible
+5. Key vaults are not monitored/ logged
+6. VPC's don't have flow logs enabled
+7. Creation/ updation/ deletion of ACL's is not monitored
+8. Inconsistent/ Missing Tagging
+9. No Exception Tagging
+10. Leading practise alerts for suspicious AWS events not monitored
