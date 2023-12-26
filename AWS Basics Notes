@@ -22,5 +22,5 @@ Transit Gateway:
 Hub to merge multiple VPC's (could also include the on-premise VPC) into one giant VPC's.
 
 Elastic Block Storage (EBS):
-Virtual file system drive 
+Virtual file system drive. Can't be used simultaneously at several instances, only one per time. If the EBS volume is the root volume, it will be deleted by 
 
