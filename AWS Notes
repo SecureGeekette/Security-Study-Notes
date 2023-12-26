@@ -1,0 +1,26 @@
+Network Access Control Lists (NACL's):
+Operating at the subnet level and are stateless (return traffic must be explicitly allowed). We can define allow & block rules (generally allow traffic for all ports in both directions)
+
+Security Groups (SGs):
+Operating on the instance level and are stateful (return traffic is implicitly allowed, opposite to NACL's). By default, all outgoing traffic is allowed but all incoming traffic is blocked (they only define allow rules).
+Security groups can be attached or removed from EC2 instances at any time (state of machine does not need to be stopped or terminated)
+
+Virtual private Gateway:
+Required if we want to connect the AWS VPC with an on-premise network
+
+Virtaul Private Cloud (VPC):
+VPC's can span over multiple availability zones in a single region and can contain several public and private subnets. A public subnet contains a route to the internet gateway (which needs to be set up). A private subnet in general has no internet access. If this is needed, a NAT gateway is configured and a route is configured to the instance.
+If we need SSH access from the internet to a resource on a private subnet (for patching for example), we need to set up a bastion host on a public subnet and configure security groups and network access control lists accordingly for forwarding traffic on port 22.
+
+VPC endpoints:
+This is required for accessing resources which are not a part of the VPC. eg. Gateway endpoint for DynamoDB and S3 and Interface endpoint for all other services.
+
+VPC Peering:
+Used for connecting different VPC's. Also possible to connect VPC's of other accounts. However, CIDR ranges should not overlap.
+
+Transit Gateway:
+Hub to merge multiple VPC's (could also include the on-premise VPC) into one giant VPC's.
+
+Elastic Block Storage (EBS):
+Virtual file system drive 
+
