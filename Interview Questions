@@ -1,3 +1,16 @@
+Building scalable bot detection solution, how to detect ssl certs issued to domains similar to fb, malware detection process, sql queries on detecting badness from logs
+code to output binary to decimal conversion
+check if IP address is in the correct format
+CSRF fixes , Cookies attributes, XXE fixes , Buffer Overflow and ASLR, XSS types and Fixes from browser headers to encoding, SQLi and 2nd over sqli.
+How parameter queries and stored procedures calls works. Http response splitting and request smuggling. Zip slip , JWT attacks , Oauth attacks and PKCE working. Many more but couldn’t recall
+1. Why you shouldn't send passwords in a GET request?
+2. SSL Handshake
+3. Secure Code Review of a login functionality written in python. Find vulnerabilities, mitigations and how to implement it.
+4. Simple python program (don't remember the question).
+add Injection attacks (SQL, Command, Remote Code, File Upload vulnerabilities), Hashing (collisions/attacks/SHA256 vs MD5 (insecure), securing passwords in applications and Windows/Unix, and parsing files in Python (find and sort log data) etc. 
+How does ssh work? (With all possible details)
+https://www.teamblind.com/post/design-review-for-security-engineering-M7Sr8h78?utm_source=share&utm_medium=normal&from=share_link
+
 How do you analyze a suspicious email attachment?
 
 
