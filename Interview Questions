@@ -52,6 +52,39 @@ If the analysis confirms malicious intent, follow the organization's incident re
 Preventive Measures:
 Implement email filtering solutions, SPF/DKIM/DMARC protocols, and endpoint protection to proactively prevent malicious emails and attachments from reaching users.
 
+Secure/Multipurpose Internet Mail Extensions (S/MIME):
+
+Purpose: S/MIME is a standard for securing email messages with encryption and digital signatures. It allows senders to encrypt the content of emails and sign them to ensure authenticity.
+Key Features: Encryption, digital signatures.
+Pretty Good Privacy (PGP):
+
+Purpose: PGP is a data encryption and decryption program that provides cryptographic privacy and authentication for data communication. It is commonly used for securing email communication through PGP signatures and encryption.
+Key Features: Encryption, digital signatures.
+DomainKeys Identified Mail (DKIM):
+
+Purpose: DKIM is an email authentication method designed to detect email spoofing. It allows the sender to sign their emails with a private key, and the recipient can verify the signature using a public key published in the DNS.
+Key Features: Email authentication, prevention of email spoofing.
+Sender Policy Framework (SPF):
+
+Purpose: SPF is an email authentication method that allows the owner of a domain to specify which mail servers are authorized to send emails on behalf of that domain. SPF helps prevent email spoofing and phishing.
+Key Features: Email authentication, prevention of email spoofing.
+Domain-based Message Authentication, Reporting, and Conformance (DMARC):
+
+Purpose: DMARC builds on DKIM and SPF to provide email authentication, reporting, and policy enforcement. It allows domain owners to set policies for handling emails that fail authentication checks, reducing email fraud.
+Key Features: Email authentication, policy enforcement.
+Transport Layer Security (TLS):
+
+Purpose: TLS is a cryptographic protocol that provides secure communication over a computer network. It is commonly used to secure email communication between mail servers and clients by encrypting the data in transit.
+Key Features: Encryption of data in transit.
+STARTTLS:
+
+Purpose: STARTTLS is a command used in the Simple Mail Transfer Protocol (SMTP) to upgrade a plaintext connection to an encrypted (TLS or SSL) connection during communication between mail servers.
+Key Features: Opportunistic encryption for email transport.
+POP over TLS/SSL (POP3S) and IMAP over TLS/SSL (IMAPS):
+
+Purpose: These protocols, POP3S and IMAPS, add a layer of security to the traditional POP3 and IMAP email retrieval protocols by using TLS/SSL for encrypted communication between email clients and servers.
+Key Features: Encryption of data in transit for email retrieval.
+
 Continuous Improvement:
 Learn from each analysis and incident to continuously improve security measures. Share insights with the security team and update security policies accordingly.
 
