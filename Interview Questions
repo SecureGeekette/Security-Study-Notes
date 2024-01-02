@@ -1,3 +1,19 @@
+If you were to start your job as a security engineer in a well established org, what would your priorities be?
+
+Basics: What is the important data? (Healthcare/ financial etc.) Who/ which processes interacts with it?
+Network diagrams (cloud/ onprem, mixed), visibility touch points (what is visible/ accessible to the external world), ingress & egress filtering
+Previous penetration tests, vulnerability assessments
+What's being logged/ audited? Any alerts configured on top of the collected logs? 
+Project prioritization, normal communication styles (how to interact with the devops engineers, product engineers etc.), culture for the team and company
+Where's the repository of information - Confluence or Github etc.?
+How can we access/ contribute to it?
+
+
+
+
+
+
+
 Building scalable bot detection solution
 
 Building a scalable bot detection solution involves a combination of technologies, strategies, and best practices to identify and mitigate automated bot activity on your platform. Here's a guide to building a scalable bot detection system:
