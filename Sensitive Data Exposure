@@ -56,3 +56,7 @@ How to prevent?
 10. Use firewalls to restrict database access to trusted IP addresses
 11. Deploy databases in isolated networks (different VPC)
 12. Implement data masking or redaction to hide sensitive data in query results
+
+Could you explain PKI (Public Key Infrastructure) and how it works?
+Governs the issuance of digital certificates, provides unique digital identities for users, devices and applications and secure end to end communications.
+Certificate signing requests are created by encoding the public key and signature. Certificates verify the owner of a private key. CA signs the cert with their own private key, CA hierarchies (intermediate CA'), revocation through certificate revocation lists etc.
