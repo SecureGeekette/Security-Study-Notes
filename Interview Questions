@@ -9,8 +9,29 @@ Where's the repository of information - Confluence or Github etc.?
 How can we access/ contribute to it?
 
 
+Can you give some examples of processes that can be employed to find vulnerabilities/ security issues in the modern day tech stack?
+Penetration tests, Vulnerability assessments (Nexpose/Nessus/Qualys), SAST, DAST, SCA scanning (Microfocus, Synopsys, Snyk), Secret Scanning (Trufflehog, Reposcanner), Container Scanning (Aqua), CSPM (Sonrai), internal audit, risk & compliance assessments
 
 
+How would you rate/ score a vulnerability?
+Attack vector (remote, local, physical), attack complexity, privileges required, user interaction, CIA impact, exploit code maturity, remediation level, report confidence, other threat intelligence feeds
+
+How would you go about addressing these vulnerabilities?
+Prioritization (based on product specifics), integrate processes with prodsec/devops lifecyle, JIRA tickets, SLA's etc.
+
+Have you worked with any IaC tools like Terraform, CloudFormation etc.? What are some of the security implications with infrastructure/ network as code?
+Insecure IaC configurations such as configuring open security groups, public ssh/ database access etc. increases the attack surface.
+IaC templates generally use base images stored in registries, there could be vulnerabilities in these AMI/ Docker images
+Ghost resources - untagged resources built using IaC give us incomplete observability in the cloud environment. This also causes cloud posture drifts that are undetected for long periods
+Maintain immutability of infrastructure by monitoring for posture drifts
+Any update, fix or modification must be implemented only via IaC, build and break earlier versions
+Unauthorized privilege escalations since IaC's are used to provision full stack cloud environments that include Kubernetes, containers and other microservices, many developers use privileges accounts to provision the same (for eg. the container process runs as root unless we explicitly specify a user). When combined with hard coded secrets and network exposures it's a serious breach path.
+
+
+What is a CI/CD pipeline? Describe the elements of a CI/ CD pipeline.
+Continuous integration/ Continuous Deployment pipeline
+Series of steps to be performed in order to deliver new version of the software.
+Build, test, release, deploy, validation and compliance
 
 
 
