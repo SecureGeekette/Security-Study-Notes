@@ -31,13 +31,13 @@ Types of Cross Site Scripting attacks:
 - Dom-based XSS: This occurs when the attacker modifies the Document Object Model (DOM) of a web page in an unexpected way leading to a security vulnerability.
 
 Exploitation Impacts:
-- Session Hijacking: User's session cookies can be stolen allowing attackers to impersonate victims and perform actions on their behalf
+- Session Hijacking: User's session cookies (or nonces or session tokens) can be stolen allowing attackers to impersonate victims and perform actions on their behalf
 - Phishing: Malicious scripts can create realistic looking login forms or other fields, tricking users into providing sensitive information. 
 - Defacement
 - Malware dsitribution: Attackers can redirect users to websites hosting malware, leading to the infection of their systems
 
 Mitigations:
-- Input validation : Validate and sanitize all user inputs, both on the client and server sides to ensure they do not contain executable scripts
+- Input validation : Validate (regex) and sanitize all user inputs, both on the client and server sides to ensure they do not contain executable scripts
 - Output encoding: Encode any content provided by users such as form inputs, comments etc. before showing it on web pages. for eg. <script> should be encoded as &lt;script&gt;. Libraries like OWASP's Java Encoder or PHP's htmlentities can be used for this purpose
 - Content Security Policy (CSP): Implement CSP headers specifying which resources are allowed to be loaded - this helps prevent xss by disallowing the execution of inline scripts
 - HttpOnly and Secure Flags: Set the following on session cookies to prevent JavaScript access and to ensure cookies are only transmitted over HTTPS connections
