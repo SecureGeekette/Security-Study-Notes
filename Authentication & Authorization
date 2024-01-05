@@ -225,3 +225,7 @@ Step 3—The foo STS returns a new JWT, which is signed by it and has an aud val
 Step 4—The Order Processing microservice accesses the Delivery microservice of the bar domain with the JWT obtained from step 3. Because the API gateway of the bar domain trusts the foo domain STS, it accepts the JWT as valid. The JWT is signed by the foo STS and has an aud value to match the bar API gateway.
 Step 5—The bar API gateway talks to the bar STS to create its own JWT (signed by the bar STS) with an aud value to match the Delivery microservice.
 Step 6—The bar API gateway forwards the request to the Delivery microservice along with the new JWT issued by the bar STS. Because the Delivery microservice trusts its own STS, the token is accepted as valid.
+
+API Gateway
+
+Using API Gateway or a similar construct can help you in validating tokens, adding throttling limits, validate input parameters.
