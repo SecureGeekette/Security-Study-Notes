@@ -34,6 +34,19 @@ Series of steps to be performed in order to deliver new version of the software.
 Build, test, release, deploy, validation and compliance
 
 
+How is pad lock icon in browser generated?
+How does DNS work?
+Explain symmetric and asymmetric encryption? Applications of both
+Name some crypto algos
+SQL injection
+CSRF
+Perfect Forward Secrecy
+How amazon guardduty works?
+Explain working of TLS? Properties of TKS
+API implementation and design
+Authentication for API's
+Securing a DB
+Hashing vs encryption
 
 Building scalable bot detection solution
 
