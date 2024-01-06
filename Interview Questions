@@ -34,8 +34,10 @@ Series of steps to be performed in order to deliver new version of the software.
 Build, test, release, deploy, validation and compliance
 
 
-How is pad lock icon in browser generated?
+How is pad lock icon in browser generated? - https://medium.com/xebia-engineering/understanding-padlocks-on-browsers-ba411e5b826#:~:text=SSL%20Certificates%20are%20small%20data,name%2C%20server%20name%20or%20hostname
+
 How does DNS work?
+
 Explain symmetric and asymmetric encryption? Applications of both
 Name some crypto algos
 SQL injection
