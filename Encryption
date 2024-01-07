@@ -1,0 +1,18 @@
+If using AES for encryption, which mode would you prefer between ECB, CBC, or GCM, and why?
+
+ECB (Electronic Codebook):
+
+Advantages: Simple and parallelizable. Each block is encrypted independently, making it easy to implement and suitable for hardware acceleration.
+Disadvantages: Lacks diffusion, meaning identical blocks of plaintext will result in identical blocks of ciphertext, which can be a security risk. Not recommended for encrypting large amounts of data or data with patterns.
+CBC (Cipher Block Chaining):
+
+Advantages: Provides better security than ECB by chaining blocks together. Each block's encryption depends on the previous block's ciphertext.
+Disadvantages: Sequential processing (cannot parallelize encryption of blocks) and the need for an Initialization Vector (IV). Errors in IV handling can lead to vulnerabilities (e.g., padding oracle attacks).
+GCM (Galois/Counter Mode):
+
+Advantages: Combines encryption with authentication (integrity checking) using a Galois field multiplication. Provides strong security and is widely used for its efficiency and performance.
+Disadvantages: May not be suitable for environments where hardware acceleration for AES-GCM is not available.
+In general, for most applications, GCM is often preferred over ECB or CBC due to its ability to provide both confidentiality and integrity in a single cryptographic operation. GCM is widely used in protocols like TLS for its efficiency and security benefits.
+
+It's essential to consider the specific requirements of your application, such as performance, parallelization, and security goals, when choosing an encryption mode. Additionally, always ensure that you use secure practices for key management and IV generation to maximize the overall security of your system.
+
