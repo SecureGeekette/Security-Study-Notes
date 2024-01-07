@@ -1,8 +1,6 @@
 Authentication is used to verify that you are who you say you are i.e. validate a user's identity.
 User authentication is the priority while responding to a request made by a software application.
 
-
-
 How do cookies work?
 
 Cookies are small pieces of data sent from a web server and stored in a user's web browser while the user is browsing a website. They are essential for many web applications because they enable the server to remember stateful information as users navigate different pages or revisit the website. Here's how they function:
