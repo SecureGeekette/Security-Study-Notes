@@ -324,7 +324,7 @@ If you were an attacker who compromised a CA and stole the private key, how woul
 How would you attack the OAuth workflow?
 
 
-Explain SSL handshake. How do certificates get provisioned?
+Explain SSL/TLS handshake. How do certificates get provisioned?
 
 The SSL handshake is a crucial process that occurs at the beginning of a secure communication session over HTTPS (Hypertext Transfer Protocol Secure) or other SSL/TLS (Transport Layer Security) protocols. The handshake is responsible for establishing a secure connection between a client (e.g., a web browser) and a server. During the SSL handshake, several steps are taken to authenticate both parties, negotiate encryption parameters, and exchange cryptographic keys.
 
@@ -347,6 +347,7 @@ Session Key Derivation: Both the client and server independently derive the sess
 Finished Messages: Both the client and server send "Finished" messages to indicate that the handshake is complete. The encryption parameters and session keys are now established, and subsequent communication is secured.
 
 Secure Data Transmission: With the session keys in place, the client and server can now securely exchange data using symmetric encryption. The SSL/TLS protocol ensures the confidentiality and integrity of the transmitted information.
+
 
 The provisioning of certificates involves obtaining a digital certificate from a trusted Certificate Authority (CA). The process generally includes:
 
